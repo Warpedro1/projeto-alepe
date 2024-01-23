@@ -1,5 +1,5 @@
 from django.urls import path
-from agenda.views import index
+from login.views import index
 
 urlpatterns = [
     path('', index),

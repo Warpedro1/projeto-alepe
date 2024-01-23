@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+
+    <link rel="stylesheet" href="{% static '/styles/style-login.css' %}">
+
+</head>
+<body>
+    <img src="{% static '/assets/images/login/plano-de-fundo-alepe.jpg' %}">
+    <img src="{% static '/assets/icons/icone-senha-escondida.png' %}">
+    <img src="{% static '/assets/icons/icone-usuario-login.png' %}">
+<div class="container">
+    <h2>Cadastro</h2>
+    <form action="seu-script-de-processamento.php" method="post">
+        <label for="login">Login:</label>
+        <input type="text" id="login" name="login" required>
+
+        <label for="senha">Senha:</label>
+        <input type="password" id="senha" name="senha" required>
+
+        <button type="submit">Entrar</button>
+    </form>
+</div>
+
+</body>
+</html>

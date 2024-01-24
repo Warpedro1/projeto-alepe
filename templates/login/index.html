@@ -1,13 +1,6 @@
+{% extends 'login/base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="{% static 'styles/style-login.css' %}">
-</head>
-<body>
+{% block content %}
 <img src="{% static 'assets/images/login/plano-de-fundo-alepe.jpg' %}" alt="iamegemalepe"/>
 <div class="retangulo" >
     <form class="login-form">
@@ -21,7 +14,4 @@
         <button type="submit">Entrar</button>
       </form>
 </div>
-
-
-</body>
-</html>
+{% endblock %}

@@ -8,12 +8,17 @@
         {% csrf_token %}
         <h2>Login</h2>
         <div class="row">
-            {% for field in form.visible_fields %}
-            <div >
-                <label for="{{ field.id_for_label }}" >{{field.label}}</label>
-                <div>{{ field }}</div>
-            </div>
-            {% endfor %}
+          {% for field in form.visible_fields %}
+          <div >
+            <label for="{{ field.id_for_label }}" >{{field.label}}</label>
+            <div>{{ field }}</div>
+          </div>
+          {% endfor %}
+          {% for message in messages %}
+          <div style="margin-bottom: 10px;color: rgb(231, 31, 31)">
+            <p id="menssagem_erro">{{message}}</p>
+          </div>
+          {% endfor %}
         </div>
         
 

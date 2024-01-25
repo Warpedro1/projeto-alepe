@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
-from django.contrib import auth
+from django.contrib import auth, messages
 from login.forms import LoginForms
 
 
@@ -22,8 +22,10 @@ def index(request):
             )
             if usuario is not None:
                 auth.login(request, usuario)
+                #messages.success(request, f'{nome} logado com sucesso!')
                 return redirect('login_concluido')
             else:
+                messages.error(request, 'Login ou Senha Incorretos.')
                 return render(request, 'login/index.html', {'form': form})
 
     return render(request, 'login/index.html', {'form': form})

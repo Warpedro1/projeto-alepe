@@ -68,6 +68,8 @@ pip install --trusted-host pypi.org --trusted-host pypi.python.org --trusted-hos
 
 # tutorial-git
 
+> **[ ! ] Tenha certeza de que está executando os próximos comandos com o terminal na mesma pasta do repositório do projeto.**
+
 - **Procurar por alterações e atualizar o repositório** 
 
 Apenas um comando é necessário para ambas situações:
@@ -93,8 +95,6 @@ Após fazer alterações no repositório, antes do commit, adicione as mudanças
 ```
 git add .
 ```
-
-> **[ ! ] Tenha certeza de que está executando esse comando com o terminal na mesma pasta do repositório do projeto.**
 
 Agora, escreva uma mensagem descrevendo brevemente o que contém no seu commit.
 

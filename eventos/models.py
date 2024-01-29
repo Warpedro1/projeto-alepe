@@ -10,11 +10,3 @@ class Evento(models.Model):
 	lugar = models.CharField(max_length=16)
 	descricao = models.CharField(max_length=256)
 	status = models.CharField(max_length=16)
-
-	def __init__(self, nome, solicitante, tempo, lugar, descricao, status):
-		self.nome = nome
-		self.solicitante = solicitante
-		self.tempo = tempo
-		self.lugar = lugar
-		self.descricao = descricao
-		self.status = status

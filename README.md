@@ -48,7 +48,7 @@ venv\Scripts\activate
 
 Antes do path do seu terminal, deve aparecer "**(venv)**", sinalizando que ele está ativo. 
 
-> **[ ! ]** Será sempre necessário ativar o venv para manipulação do repositório.
+> **[ ! ] Será sempre necessário ativar o venv para manipulação do repositório.**
 
 #
 
@@ -82,7 +82,7 @@ Caso exista algum alteração, ele vai atualizar seu repositório, se não, já 
 Already up to date.
 ```
 
-> **[ ! ]** É recomendado que você atualize seu repositório antes de fazer qualquer nova alteração e também garanta que não haja duas ou mais pessoas mexendo nos mesmos arquivos que você, para não gerar conflito no código.
+> **[ ! ] É recomendado que você atualize seu repositório antes de fazer qualquer nova alteração e também garanta que não haja duas ou mais pessoas mexendo nos mesmos arquivos que você, para não gerar conflito no código.**
 
 #
 
@@ -94,7 +94,7 @@ Após fazer alterações no repositório, antes do commit, adicione as mudanças
 git add .
 ```
 
-> **[ ! ]** Tenha certeza de que está executando esse comando com o terminal na mesma pasta do repositório do projeto.
+> **[ ! ] Tenha certeza de que está executando esse comando com o terminal na mesma pasta do repositório do projeto.**
 
 Agora, escreva uma mensagem descrevendo brevemente o que contém no seu commit.
 

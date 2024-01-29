@@ -1,69 +1,117 @@
-# ALEPE Demandas
+# projeto-alepe
 
-# INSTALAÇÃO:
+- **Importando o repositório**
 
-Para instalar o projeto na sua maquina:
+Para começar, através de um termial, acesse o local de preferência para clonar o repositório.
 
-Crie uma pasta do projeto com o nome do projeto
-
-Na pasta de um clone dos arquivos:
-git clone https://github.com/Warpedro1/projeto-alepe.git
-
-Quando clonado os arquivos set os ambientes da venv:
 ```
- (TRUSTED HOST) pip install virtualenv
+git clone <code>
 ``` 
-Caso ocorra erro de permissão de rede:
-```
-  pip install --trusted-host pypi.org --trusted-host pypi.python.org --trusted-host files.pythonhosted.org <package_name>
- 
-```
-Instalar o ambiente virtual:
- 
-```
-(ADMNISTRADOR) python -m virtualenv venv
- 
-```
-Depois entre na sua venv:
- 
-```
- venv\Scripts\activate
- 
-```
 
-No ultimo passo baixe os arquivos requirements:
+Quando terminado, o output deverá ser algo como:
 
 ```
- (TRUSTED HOST) pip install -r requirements.txt
+Resolving deltas: 100% (x/y), done.
+```
+
+#
+
+- **Configurando a venv**
+
+Execute o seguinte comando para instalação do virtualenv via pip
+
+```
+pip install virtualenv
+``` 
+
+Caso ocorra algum erro de permissão de rede, execute o seguinte comando:
+
+```
+pip install --trusted-host pypi.org --trusted-host pypi.python.org --trusted-host files.pythonhosted.org virtualenv
+```
+
+#
+
+- **Criação do venv do projeto**
+
+Abra um terminal como adiministrador no repositório do projeto e execute o comando:
+
+```
+python -m virtualenv venv
+```
+
+Em seguida, ative o venv:
  
 ```
-Caso ocorra erro de permissão de rede:
+venv\Scripts\activate
+```
+
+Antes do path do seu terminal, deve aparecer "**(venv)**", sinalizando que ele está ativo. 
+
+> **[ ! ]** Será sempre necessário ativar o venv para manipulação do repositório.
+
+#
+
+- **Instalando os requisitos**
+
+Com o terminal aberto no repositório git e com o venv ativo, execute o comando:
+
+```
+pip install -r requirements.txt
+```
+
+Caso ocorra algum erro de permissão de rede novamente, execute o seguinte comando:
  
 ```
-  pip install --trusted-host pypi.org --trusted-host pypi.python.org --trusted-host files.pythonhosted.org <package_name>
+pip install --trusted-host pypi.org --trusted-host pypi.python.org --trusted-host files.pythonhosted.org -r requirements.txt
 ```
 
-# COMEÇAR A TRABALHAR:
+# tutorial-git
+
+- **Procurar por alterações e atualizar o repositório** 
+
+Apenas um comando é necessário para ambas situações:
 
 ```
-- git pull ( vai puxar as alterações do repositório online)
+git pull
 ```
 
-# FINALIZAR TRABALHO:
+Caso exista algum alteração, ele vai atualizar seu repositório, se não, já está atualizado e você verá:
 
 ```
--git add . ( coloca suas altercação em staged)
+Already up to date.
+```
 
--git commit -m “nome do commit” ( commita as alterações)
+> **[ ! ]** É recomendado que você atualize seu repositório antes de fazer qualquer nova alteração e também garanta que não haja duas ou mais pessoas mexendo nos mesmos arquivos que você, para não gerar conflito no código.
 
--git push
+#
+
+- **Fazendo um commit**
+
+Após fazer alterações no repositório, antes do commit, adicione as mudanças para staging.
+
 ```
- caso ocorra erro na hora do push (fatal: detected dubious ownership in repository at...):
- 
- use o comando:
-  
+git add .
 ```
- git config --global --add safe.directory C:/Users/<seu_usuario>/pull/projeto-alepe
- 
+
+> **[ ! ]** Tenha certeza de que está executando esse comando com o terminal na mesma pasta do repositório do projeto.
+
+Agora, escreva uma mensagem descrevendo brevemente o que contém no seu commit.
+
 ```
-#venv/lib/site-packages/django/contrib/admin/templates/sites.py
+<ex.> git commit -m "Adição do modelo Evento em eventos"
+```
+
+Agora seu commit está pronto para ser enviado.
+
+```
+git push
+```
+
+Caso ocorra algum erro ao executar o push, utilize o seguinte comando antes de terntar fazer push novamente.
+
+```
+git config --global --add safe.directory C:/<path>/projeto-alepe
+```
+
+#

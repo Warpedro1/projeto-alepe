@@ -3,18 +3,19 @@ import datetime
 from django.db import models
 from django.utils import timezone
 
-class Evento(models.Model):
-	nome = models.CharField(max_length=256)
-	solicitante = models.CharField(max_length=256)
-	tempo = models.DateTimeField()
-	lugar = models.CharField(max_length=16)
-	descricao = models.CharField(max_length=256)
-	status = models.CharField(max_length=16)
+OPCOES_STATUS = [
+	("AGENDADO", "Agendado"),
+	("EM PROGESSO", "Em Progresso"),
+	("CONCLUIDO", "Concluido"),
+]
 
-	def __init__(self, nome, solicitante, tempo, lugar, descricao, status):
-		self.nome = nome
-		self.solicitante = solicitante
-		self.tempo = tempo
-		self.lugar = lugar
-		self.descricao = descricao
-		self.status = status
+class Evento(models.Model):
+	nome = models.CharField(max_length=256, null=False, blank=False)
+	solicitante = models.CharField(max_length=256, null=False, blank=False)
+	tempo = models.DateTimeField(null=False, blank=False)
+	lugar = models.CharField(max_length=16, null=False, blank=False)
+	descricao = models.CharField(max_length=256, null=False, blank=False)
+	status = models.CharField(max_length=16, choices=OPCOES_STATUS, default='', null=False, blank=False)
+
+	def __str__(self):
+		return self.nome

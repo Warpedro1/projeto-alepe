@@ -66,3 +66,4 @@ Caso ocorra erro de permissão de rede:
  git config --global --add safe.directory C:/Users/<seu_usuario>/pull/projeto-alepe
  
 ```
+#venv/lib/site-packages/django/contrib/admin/templates/sites.py

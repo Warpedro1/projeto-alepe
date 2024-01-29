@@ -34,7 +34,7 @@ pip install --trusted-host pypi.org --trusted-host pypi.python.org --trusted-hos
 
 - **Criação do venv do projeto**
 
-Abra um terminal como adiministrador no repositório do projeto e execute o comando:
+Abra um terminal como administrador no repositório do projeto e execute o comando:
 
 ```
 python -m virtualenv venv

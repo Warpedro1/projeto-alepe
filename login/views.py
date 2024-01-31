@@ -23,12 +23,12 @@ def index(request):
             if usuario is not None:
                 auth.login(request, usuario)
                 #messages.success(request, f'{nome} logado com sucesso!')
-                return redirect('login_concluido')
+                return redirect('home_eventos')
             else:
                 messages.error(request, 'Login ou Senha Incorretos.')
                 return render(request, 'login/index.html', {'form': form})
 
     return render(request, 'login/index.html', {'form': form})
 
-def login_concluido(request):
-    return render(request, 'login/login_concluido.html')
+def home_eventos(request):
+    return render(request, 'eventos/home_eventos.html')

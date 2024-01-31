@@ -4,7 +4,7 @@
 <img src="{% static 'assets/images/login/plano-de-fundo-alepe.jpg' %}" alt="iamegemalepe"/>
 <div class="retangulo" >
     <form class="login-form" method="POST">
-      <form action="{% url 'login_concluido' %}" method="POST">
+      <form action="{% url 'home_eventos' %}" method="POST">
         {% csrf_token %}
         <h2>Login</h2>
         <div class="row">

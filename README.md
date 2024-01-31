@@ -71,7 +71,7 @@
 
 - ## Execução
 
-    >**[ ! ] É necessário que o terminal esteja aberto no repositório do projeto com o venv ativo para execução dos póroximos comandos.**
+    >**[ ! ] É importante que o terminal esteja aberto no repositório do projeto com o venv ativo para execução dos póroximos comandos.**
 
     - ### Localmente
 
@@ -143,7 +143,7 @@
         <ex.> git commit -m "Adição do modelo Evento em eventos"
         ```
 
-        Prono! Seu commit está pronto para ser enviado, utilize:
+        Pronto! Seu commit está pronto para ser enviado, utilize:
 
         ```
         git push

@@ -112,4 +112,4 @@
 
     *Exemplificar; demonstrar.*
 
-    >**[!] Qualquer texto dentro dessa sinalização, incluindo ela mesma, deve ser desconsiderado ou substituído por algo.**
+    >**[ ! ] Qualquer texto dentro dessa sinalização, incluindo ela mesma, deve ser desconsiderado ou substituído por algo.**

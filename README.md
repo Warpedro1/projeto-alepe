@@ -110,4 +110,6 @@
 
 - ## <>
 
-    Qualquer texto dentro dessa sinalização, incluindo ela mesma, deve ser desconsiderado e/ou substituído por algo, sendo assim, servindo apenas para exemplificar ou demonstrar.
+    *Exemplificar; demonstrar.*
+
+    >**[!] Qualquer texto dentro dessa sinalização, incluindo ela mesma, deve ser desconsiderado ou substituído por algo.**

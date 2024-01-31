@@ -1,117 +1,113 @@
 # projeto-alepe
 
-- **Importando o repositório**
+- ## Importando o repositório
 
-Para começar, através de um termial, acesse o local de preferência para clonar o repositório.
+    Para começar, através de um termial, acesse o local de preferência para clonar o repositório.
 
-```
-git clone <code>
-``` 
+    ```
+    git clone <code>
+    ``` 
 
-Quando terminado, o output deverá ser algo como:
+    Quando terminado, o output deverá ser algo como:
 
-```
-Resolving deltas: 100% (x/y), done.
-```
+    ```
+    Resolving deltas: 100% (x/y), done.
+    ```
 
-#
+- ## Configurando o virtualenv
 
-- **Configurando a venv**
+    Execute o seguinte comando para instalação do virtualenv via pip
 
-Execute o seguinte comando para instalação do virtualenv via pip
+    ```
+    pip install virtualenv
+    ``` 
 
-```
-pip install virtualenv
-``` 
+    Caso ocorra algum erro de permissão de rede, execute o seguinte comando:
 
-Caso ocorra algum erro de permissão de rede, execute o seguinte comando:
+    ```
+    pip install --trusted-host pypi.org --trusted-host pypi.python.org --trusted-host files.pythonhosted.org virtualenv
+    ```
 
-```
-pip install --trusted-host pypi.org --trusted-host pypi.python.org --trusted-host files.pythonhosted.org virtualenv
-```
+- ## Criação do venv do projeto
 
-#
+    Abra um terminal como administrador no repositório do projeto e execute o comando:
 
-- **Criação do venv do projeto**
+    ```
+    python -m virtualenv venv
+    ```
 
-Abra um terminal como administrador no repositório do projeto e execute o comando:
-
-```
-python -m virtualenv venv
-```
-
-Em seguida, ative o venv:
+    Em seguida, ative o venv:
  
-```
-venv\Scripts\activate
-```
+    ```
+    venv\Scripts\activate
+    ```
 
-Antes do path do seu terminal, deve aparecer "**(venv)**", sinalizando que ele está ativo. 
+    Antes do path do seu terminal, deve aparecer "**(venv)**", sinalizando que ele está ativo. 
 
-> **[ ! ] Será sempre necessário ativar o venv para manipulação do repositório.**
+    > **[ ! ] Será sempre necessário ativar o venv para manipulação do repositório.**
 
-#
+- ## Instalando os requisitos
 
-- **Instalando os requisitos**
+    Com o terminal aberto no repositório e com o venv ativo, execute o comando:
 
-Com o terminal aberto no repositório git e com o venv ativo, execute o comando:
+    ```
+    pip install -r requirements.txt
+    ```
 
-```
-pip install -r requirements.txt
-```
-
-Caso ocorra algum erro de permissão de rede novamente, execute o seguinte comando:
+    Caso ocorra algum erro de permissão de rede novamente, execute o seguinte comando:
  
-```
-pip install --trusted-host pypi.org --trusted-host pypi.python.org --trusted-host files.pythonhosted.org -r requirements.txt
-```
+    ```
+    pip install --trusted-host pypi.org --trusted-host pypi.python.org --trusted-host files.pythonhosted.org -r requirements.txt
+    ```
 
 # tutorial-git
 
 > **[ ! ] Tenha certeza de que está executando os próximos comandos com o terminal na mesma pasta do repositório do projeto.**
 
-- **Procurar por alterações e atualizar o repositório** 
+- ## Procurar por alterações e atualizar o repositório 
 
-Apenas um comando é necessário para ambas situações:
+    Apenas um comando é necessário para ambas situações:
 
-```
-git pull
-```
+    ```
+    git pull
+    ```
 
-Caso exista algum alteração, ele vai atualizar seu repositório, se não, já está atualizado e você verá:
+    Caso exista algum alteração, ele vai atualizar seu repositório, se não, já está atualizado e você verá no terminal:
 
-```
-Already up to date.
-```
+    ```
+    Already up to date.
+    ```
 
-> **[ ! ] É recomendado que você atualize seu repositório antes de fazer qualquer nova alteração e também garanta que não haja duas ou mais pessoas mexendo nos mesmos arquivos que você, para não gerar conflito no código.**
+    > **[ ! ] É recomendado que você atualize seu repositório antes de fazer qualquer nova alteração e também garanta que não haja duas ou mais pessoas mexendo nos mesmos arquivos que você, para não gerar conflito no código.**
 
-#
+- ## Fazendo um commit
 
-- **Fazendo um commit**
+    Após fazer alterações no repositório, antes do commit, adicione as mudanças para staging.
 
-Após fazer alterações no repositório, antes do commit, adicione as mudanças para staging.
+    ```
+    git add .
+    ```
 
-```
-git add .
-```
+    Agora, escreva uma mensagem descrevendo brevemente o que contém no seu commit.
 
-Agora, escreva uma mensagem descrevendo brevemente o que contém no seu commit.
+    ```
+    <ex.> git commit -m "Adição do modelo Evento em eventos"
+    ```
 
-```
-<ex.> git commit -m "Adição do modelo Evento em eventos"
-```
+    Agora seu commit está pronto para ser enviado.
 
-Agora seu commit está pronto para ser enviado.
+    ```
+    git push
+    ```
 
-```
-git push
-```
+    Caso ocorra algum erro ao executar o push, utilize o seguinte comando antes de terntar fazer push novamente.
 
-Caso ocorra algum erro ao executar o push, utilize o seguinte comando antes de terntar fazer push novamente.
+    ```
+    git config --global --add safe.directory C:/<path>/projeto-alepe
+    ```
 
-```
-git config --global --add safe.directory C:/<path>/projeto-alepe
-```
+# glossário
 
-#
+- ## <>
+
+    Qualquer texto dentro dessa sinalização, incluindo ela mesma, deve ser desconsiderado e/ou substituído por algo, sendo assim, servindo apenas para exemplificar ou demonstrar.

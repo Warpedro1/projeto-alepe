@@ -91,7 +91,7 @@
             python manage.py createsuperuser
             ```
 
-            >**[ ! ] Para acessar a página de administração, adicione /admin no link oferecido ao executar o comando abaixo, e faça login com o administrador criado anteriormente.**
+            >**[ ! ] Para acessar a página de administração, adicione /admin no link oferecido ao executar o comando abaixo e faça login com o administrador criado anteriormente.**
 
             #
 
@@ -173,4 +173,4 @@
 
     *Exemplificar; demonstrar.*
 
-    >**[ ! ] Qualquer texto dentro dessa sinalização, inclusive ela mesma, deve ser desconsiderado ou substituído por algo, a depender do que estiver relacionda.**
+    >**[ ! ] Qualquer texto dentro dessa sinalização, incluindo ela mesma, deve ser desconsiderado ou substituído por algo, a depender do que estiver relacionda.**

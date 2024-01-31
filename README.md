@@ -125,7 +125,7 @@
         Already up to date.
         ```
 
-        > **[ ! ] É recomendado que você atualize seu repositório antes de fazer qualquer nova alteração e também garanta que não haja duas ou mais pessoas mexendo nos mesmos arquivos que você, para não gerar conflito no código.**
+        > **[ ! ] É recomendado que você atualize seu repositório antes de fazer qualquer nova alteração e também garanta que não haja uma ou mais pessoas mexendo nos mesmos arquivos que você, para não gerar conflito no código.**
 
 - ## Push
 

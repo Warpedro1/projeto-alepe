@@ -2,7 +2,7 @@
 
 - ## Descrição
 
-    Esse projeto tem como intuito otimizar o gerenciamento do Suporte, setor da STI da Assembleia  Legislativa de Pernambuco, ao mesmo tempo que procura reduzir o uso de papéis, visando a digitalização do processo de organização de eventos promovidos pela Casa. 
+    Esse projeto tem como intuito otimizar o gerenciamento do **Suporte**, setor da **STI** da **Assembleia  Legislativa de Pernambuco**, ao mesmo tempo que procura reduzir o uso de papéis, visando a digitalização do processo de organização de eventos promovidos pela Casa. 
 
 - ## Configuração
 
@@ -67,25 +67,43 @@
         pip freeze
         ```
 
-        O output deverá ser algo como:
-    
-        ```
-        asgiref==3.7.2
-        Django==5.0.1
-        python-dotenv==1.0.0
-        sqlparse==0.4.4
-        tzdata==2023.4
-        ```
+        O output deverá ser exatamente o que está escrito no arquivo de requisitos.
 
-- ## Utilização
+- ## Execução
 
-    - ### Executando a aplicação localmente
-    
-        Em um terminal aberto no repositório do projeto com o venv ativo, basta executar o comando seguinte.
+    >**[ ! ] É necessário que o terminal esteja aberto no repositório do projeto com o venv ativo para execução dos póroximos comandos.**
 
-        ```
-        py manage.py runserver
-        ```
+    - ## Localmente
+
+        - ### Iniciando o banco de dados
+
+            ```
+            python manage.py migrate
+            ```
+
+            >**[ ! ] Esse comando só é necessário no primeiro contato com a aplicação.**
+
+            #
+
+        - ### Criando um administrador
+
+            ```
+            python manage.py createsuperuser
+            ```
+
+            >**[ ! ] Para acessar a página de administração, adicione /admin no link oferecido ao executar o comando abaixo, e faça login com o administrador criado anteriormente.**
+
+            #
+
+        - ### Executando a aplicação
+
+            ```
+            python manage.py runserver
+            ```
+
+- ## Manipulação
+
+    🚧 **WORK IN PROGRESS** 🚧
 
 # Tutorial Git
 

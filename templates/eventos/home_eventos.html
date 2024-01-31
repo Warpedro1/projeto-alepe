@@ -1,6 +1,177 @@
 {% extends 'eventos/base.html' %}
 {% load static %}
 {% block content %}
+<body>
 
-<h1>eventos</h1>
+    <div class="container">
+        <!-- sidebar section -->
+        <aside>
+            <div class="toggle">
+                <div class="logo">
+                    <img src="{% static 'assets/icons/icone-alepe 1.png' %}">
+                    <h2><span class="danger"> Alepe Suporte</span></h2>
+                </div>
+                
+            </div>
+
+            <div class="sidebar">
+                <a href="#">
+                    <span class="material-icons-sharp">
+                        dashboard
+                    </span>
+                    <h3>Dashboard</h3>
+                </a>
+                <a href="#" class="active">
+                    <span class="material-icons-sharp">
+                        calendar_today
+                    </span>
+                    <h3>Calendario</h3>
+                </a>
+                <a href="#">
+                    <span class="material-icons-sharp">
+                        calendar_view_week
+                    </span>
+                    <h3>Mes</h3>
+                    <span class="message-count">12</span>
+                </a>
+                <a href="#">
+                    <span class="material-icons-sharp">
+                        logout
+                    </span>
+                    <h3>Logout</h3>
+                </a>
+            </div>
+        </aside>
+        <!-- fim sidebar section -->
+
+        <!-- main content -->
+        <main>
+             <!--colocar as tags aq-->
+            <!-- filtros -->
+            <ul class="filtros">
+                <li>
+                    <i class='bx bx-box'></i>
+                    <span class="info">
+                        <h3>
+                            5
+                        </h3>
+                        <p>Agendados</p>
+                    </span>
+                </li>
+                <li><i class='bx bx-time-five'></i>
+                    <span class="info">
+                        <h3>
+                            1
+                        </h3>
+                        <p>Progresso</p>
+                    </span>
+                </li>
+                <li><i class='bx bx-check-double'></i>
+                    <span class="info">
+                        <h3>
+                            2
+                        </h3>
+                        <p>Concluidos</p>
+                    </span>
+                </li>
+            </ul>
+            <!-- End of filtros -->
+        </main>
+        <!-- End of Main Content -->
+
+        <!-- Right Section -->
+        <div class="right-section">
+            <div class="nav">
+                <button id="menu-btn">
+                    <span class="material-icons-sharp">
+                        menu
+                    </span>
+                </button>
+                <div class="dark-mode">
+                    <span class="material-icons-sharp active">
+                        light_mode
+                    </span>
+                    <span class="material-icons-sharp">
+                        dark_mode
+                    </span>
+                </div>
+
+                <div class="profile">
+                    <div class="info">
+                        <p><b> Renato</b></p>
+                        <small class="text-muted">Suporte</small>
+                    </div>
+                    <div class="profile-photo">
+                        <img src="{% static 'assets/images/home-eventos/profile-sti.png' %}">
+                    </div>
+                </div>
+
+            </div>
+            <!-- End of Nav -->
+
+            <div class="reminders">
+                <div class="header">
+                    <h2>Lembrente</h2>
+                    <span class="material-icons-sharp">
+                        notifications_none
+                    </span>
+                </div>
+
+                <div class="notification">
+                    <div class="icon">
+                        <span class="material-icons-sharp">
+                            event
+                        </span>
+                    </div>
+                    <div class="content">
+                        <div class="info">
+                            <h3>Palestra | Plenario</h3>
+                            <small class="text_muted">
+                                08:00 AM - 12:00 PM
+                            </small>
+                        </div>
+                        <span class="material-icons-sharp">
+                            more_vert
+                        </span>
+                    </div>
+                </div>
+
+                <div class="notification deactive">
+                    <div class="icon">
+                        <span class="material-icons-sharp">
+                            event
+                        </span>
+                    </div>
+                    <div class="content">
+                        <div class="info">
+                            <h3>Palestra | Plenario</h3>
+                            <small class="text_muted">
+                                08:00 AM - 12:00 PM
+                            </small>
+                        </div>
+                        <span class="material-icons-sharp">
+                            more_vert
+                        </span>
+                    </div>
+                </div>
+
+                <div class="notification add-reminder">
+                    <div>
+                        <span class="material-icons-sharp">
+                            add
+                        </span>
+                        <h3>Adicionar Lembrete</h3>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+    <script src="index.js"></script>
+</body>
+
+</html>
 {% endblock %}

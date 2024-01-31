@@ -73,7 +73,7 @@
 
     >**[ ! ] É necessário que o terminal esteja aberto no repositório do projeto com o venv ativo para execução dos póroximos comandos.**
 
-    - ## Localmente
+    - ### Localmente
 
         - ### Iniciando o banco de dados
 

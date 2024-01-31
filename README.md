@@ -156,7 +156,7 @@
     Caso ocorra erro de permissão de rede, execute o seguinte comando:
 
     ```
-    pip install --trusted-host pypi.org --trusted-host pypi.python.org --trusted-host files.pythonhosted.org <flag> <package-name>         
+    pip install --trusted-host pypi.org --trusted-host pypi.python.org --trusted-host files.pythonhosted.org <flag> <package>         
     ```
 
 - ## git push

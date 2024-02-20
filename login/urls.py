@@ -1,7 +1,6 @@
 from django.urls import path
-from login.views import index, home_eventos
+from login.views import index
 
 urlpatterns = [
-    path('', index),
-    path('home_eventos', home_eventos, name='home_eventos')
+    path('', index)
 ]

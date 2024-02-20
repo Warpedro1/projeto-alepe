@@ -29,6 +29,3 @@ def index(request):
                 return render(request, 'login/index.html', {'form': form})
 
     return render(request, 'login/index.html', {'form': form})
-
-def home_eventos(request):
-    return render(request, 'eventos/home_eventos.html')

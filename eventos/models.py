@@ -5,7 +5,7 @@ from django.utils import timezone
 
 OPCOES_STATUS = [
 	("AGENDADO", "Agendado"),
-	("EM PROGESSO", "Em Progresso"),
+	("EM PROGRESSO", "Em Progresso"),
 	("CONCLUIDO", "Concluido"),
 ]
 
@@ -18,4 +18,4 @@ class Evento(models.Model):
 	status = models.CharField(max_length=16, choices=OPCOES_STATUS, default='', null=False, blank=False)
 
 	def __str__(self):
-		return self.nome
+		return f"Nome: {self.nome}, Solicitante: {self.solicitante}, Tempo: {self.tempo}, Lugar: {self.lugar}, Descrição: {self.descricao}, Status: {self.status}"

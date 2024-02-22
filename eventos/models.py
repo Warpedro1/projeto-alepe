@@ -18,4 +18,11 @@ class Evento(models.Model):
 	status = models.CharField(max_length=16, choices=OPCOES_STATUS, default='', null=False, blank=False)
 
 	def __str__(self):
-		return f"Nome: {self.nome}, Solicitante: {self.solicitante}, Tempo: {self.tempo}, Lugar: {self.lugar}, Descrição: {self.descricao}, Status: {self.status}"
+		return f"""
+				Nome: {self.nome},
+				Solicitante: {self.solicitante},
+				Tempo: {self.tempo},
+				Lugar: {self.lugar},
+				Descrição: {self.descricao},
+				Status: {self.status}
+				"""

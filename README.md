@@ -169,6 +169,7 @@
 
 # Glossário
 
+
 - ## <>
 
     *Exemplificar; demonstrar.*

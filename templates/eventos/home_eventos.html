@@ -25,20 +25,27 @@
                     <span class="material-icons-sharp">
                         calendar_today
                     </span>
-                    <h3>Calendario</h3>
+                    <h3>Diário</h3>
                 </a>
                 <a href="#">
                     <span class="material-icons-sharp">
                         calendar_view_week
                     </span>
                     <h3>Mes</h3>
-                    <span class="message-count">12</span>
+                    <span class="message-count">{{ quantidade_eventos_mes_atual }}</span>
                 </a>
                 <a href="#">
                     <span class="material-icons-sharp">
                         logout
                     </span>
-                    <h3>Logout</h3>
+                    <h3>
+                        <!-- form para logout -->
+                        <form action="/" method="post">
+                            {% csrf_token %}
+                            {{ logout_view }}
+                        <button type="submit">Logout</button>
+                        </form>
+                    </h3>
                 </a>
             </div>
         </aside>
@@ -111,7 +118,7 @@
 
             <div class="reminders">
                 <div class="header">
-                    <h2>Amanhã</h2>
+                    <h2>Amanhã • {{ datas.amanha }}</h2>
                     <span class="material-icons-sharp">
                         notifications_none
                     </span>

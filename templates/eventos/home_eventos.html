@@ -55,12 +55,13 @@
         <main>
              <!--colocar as tags aq-->
             <!-- filtros -->
+            <h1> {{ datas_em_string.dia_da_semana }}, {{ datas_em_string.hoje }} </h1>
             <ul class="filtros">
                 <li>
                     <i class='bx bx-box'></i>
                     <span class="info">
                         <h3>
-                            {{ quantidade_eventos.agendados }}
+                            {{ quantidade_eventos.hoje.agendados }}
                         </h3>
                         <p>Agendados</p>
                     </span>
@@ -68,7 +69,7 @@
                 <li><i class='bx bx-time-five'></i>
                     <span class="info">
                         <h3>
-                            {{ quantidade_eventos.em_progresso }}
+                            {{ quantidade_eventos.hoje.em_progresso }}
                         </h3>
                         <p>Progresso</p>
                     </span>
@@ -76,65 +77,36 @@
                 <li><i class='bx bx-check-double'></i>
                     <span class="info">
                         <h3>
-                            {{ quantidade_eventos.concluidos }}
+                            {{ quantidade_eventos.hoje.concluidos }}
                         </h3>
                         <p>Concluidos</p>
                     </span>
                 </li>
             </ul>
             <br></br> <!--dia da semana-->
-             <h1> Segunda, 13 de Abril </h1>
             <!--cards event-->
             <ul class="eventos">
+                {% for evento in eventos_hoje %}
+                {% if evento.status == "AGENDADO" %}
                 <li id="agendados">
                     <i class='agendados'></i>
-                    <span class="info">
-                        <d1>
-                            <dt>Evento     |   10:00</dt>
-                            <dd>Infos</dd>
-                            <dd>Mais Infos</dd>
-                        </d1>
-                    </span>
-                </li>
-                <li id="agendados">
-                    <i class='agendados'></i>
-                    <span class="info">
-                        <d1>
-                            <dt>Evento</dt>
-                            <dd>Infos</dd>
-                            <dd>Mais Infos</dd>
-                        </d1>
-                    </span>
-                </li><li id="agendados">
-                    <i class='agendados'></i>
-                    <span class="info">
-                        <d1>
-                            <dt>Evento</dt>
-                            <dd>Infos</dd>
-                            <dd>Mais Infos</dd>
-                        </d1>
-                    </span>
-                </li>
+                {% elif evento.status == "EM PROGRESSO" %}
                 <li id="progresso">
                     <i class='progresso'></i>
-                    <span class="info">
-                        <d1>
-                            <dt>Evento</dt>
-                            <dd>Infos</dd>
-                            <dd>Mais Infos</dd>
-                        </d1>
-                    </span>
-                </li>
+                {% elif evento.status == "CONCLUIDO" %}
                 <li id="concluidos">
                     <i class='concluidos'></i>
+                {% endif %}
                     <span class="info">
                         <d1>
-                            <dt>Evento</dt>
-                            <dd>Infos</dd>
-                            <dd>Mais Infos</dd>
+                            <dt>{{ evento.nome }}     |   {{ evento.tempo }}</dt>
+                            <dd>{{ evento.solicitante }}</dd>
+                            <dd>{{ evento.lugar }}</dd>
+                            <dd>{{ evento.descricao }}</dd>
                         </d1>
                     </span>
                 </li>
+            {% endfor %}
             </ul>
         </main>
         <!-- End of Main Content -->
@@ -171,7 +143,7 @@
 
             <div class="reminders">
                 <div class="header">
-                    <h2>Amanhã • {{ datas.amanha }}</h2>
+                    <h2>Amanhã • {{ datas_formatadas.amanha }}</h2>
                     <span class="material-icons-sharp">
                         notifications_none
                     </span>

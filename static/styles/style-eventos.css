@@ -177,7 +177,7 @@ aside .sidebar:hover{
 aside .sidebar a{
     display: flex;
     align-items: center;
-    color: var(--color-info-dark);
+    color: var(--color-dark-variant);
     height: 3.7rem;
     gap: 1rem;
     position: relative;
@@ -198,7 +198,7 @@ aside .sidebar a:last-child{
 
 aside .sidebar a.active{
     width: 100%;
-    color: var(--color-blue);
+    color: var(--color-danger);
     background-color: var(--color-light);
     margin-left: 0;
 }
@@ -207,16 +207,16 @@ aside .sidebar a.active::before{
     content: '';
     width: 6px;
     height: 18px;
-    background-color: var(--color-blue);
+    background-color: var(--color-danger);
 }
 
 aside .sidebar a.active span{
-    color: var(--color-blue);
+    color: var(--color-danger);
     margin-left: calc(1rem - 3px);
 }
 
 aside .sidebar a:hover{
-    color: var(--color-blue);
+    color: var(--color-danger);
 }
 
 aside .sidebar a:hover span{
@@ -401,28 +401,6 @@ main .recent-orders table{
     border-radius: var(--card-border-radius);
     transition: all 0.3s ease;
 }
-
-main .recent-orders table:hover{
-    box-shadow: none;
-}
-
-main table tbody td{
-    height: 2.8rem;
-    border-bottom: 1px solid var(--color-light);
-    color: var(--color-dark-variant);
-}
-
-main table tbody tr:last-child td{
-    border: none;
-}
-
-main .recent-orders a{
-    text-align: center;
-    display: block;
-    margin: 1rem auto;
-    color: var(--color-blue);
-}
-
 .right-section{
     margin-top: 1.4rem;
 }
@@ -486,7 +464,6 @@ main .recent-orders a{
     border-radius: var(--card-border-radius);
     box-shadow: var(--box-shadow);
     cursor: pointer;
-    transition: all 0.3s ease;
 }
 
 .right-section .user-profile:hover{
@@ -496,7 +473,7 @@ main .recent-orders a{
 .right-section .user-profile img{
     width: 11rem;
     height: auto;
-    margin-bottom: 0.8rem;
+    margin-bottom: 50rem;
     border-radius: 50%;
 }
 
@@ -532,7 +509,6 @@ main .recent-orders a{
     border-radius: var(--border-radius-2);
     box-shadow: var(--box-shadow);
     cursor: pointer;
-    transition: all 0.3s ease;
 }
 
 .right-section .reminders .notification:hover{
@@ -550,7 +526,7 @@ main .recent-orders a{
 .right-section .reminders .notification .icon{
     padding: 0.6rem;
     color: var(--color-white);
-    background-color: var(--color-concluido);
+    background-color: var(--color-danger);
     border-radius: 20%;
     display: flex;
 }
@@ -561,8 +537,8 @@ main .recent-orders a{
 
 .right-section .reminders .add-reminder{
     background-color: var(--color-white);
-    border: 2px dashed var(--color-blue);
-    color: var(--color-blue);
+    border: 2px dashed var(--color-danger);
+    color: var(--color-danger);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -570,7 +546,7 @@ main .recent-orders a{
 }
 
 .right-section .reminders .add-reminder:hover{
-    background-color: var(--color-blue);
+    background-color: var(--grey);
     color: white;
 }
 
@@ -604,11 +580,7 @@ main .recent-orders a{
     }
 
     main .filtros{
-        grid-template-columns: 1fr;
-        gap: 0;
-    }
-    main .eventos{
-        grid-template-columns: 1fr;
+        grid-template-columns: 3 1fr;
         gap: 0;
     }
 }

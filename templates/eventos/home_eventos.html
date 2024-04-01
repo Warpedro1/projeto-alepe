@@ -55,7 +55,6 @@
         <main>
              <!--colocar as tags aq-->
             <!-- filtros -->
-            <h1> {{ datas_em_string.dia_da_semana }}, {{ datas_em_string.hoje }} </h1>
             <ul class="filtros">
                 <li>
                     <i class='bx bx-box'></i>
@@ -84,6 +83,7 @@
                 </li>
             </ul>
             <br></br> <!--dia da semana-->
+            <h1> {{ datas_em_string.dia_da_semana }}, {{ datas_em_string.hoje }} </h1>
             <!--cards event-->
             <ul class="eventos">
                 {% for evento in eventos_hoje %}
@@ -119,19 +119,10 @@
                         menu
                     </span>
                 </button>
-                <div class="dark-mode">
-                    <span class="material-icons-sharp active">
-                        light_mode
-                    </span>
-                    <span class="material-icons-sharp">
-                        dark_mode
-                    </span>
-                </div>
-
                 <div class="profile">
                     <div class="info">
                         <p><b> {{ current_user.username }}</b></p>
-                        <small class="text-muted">Suporte</small>
+                        <small class="text-muted">Suporte</small> <!--colocar se eh usuario normal ou admin-->
                     </div>
                     <div class="profile-photo">
                         <img src="{% static 'assets/images/home-eventos/profile-sti.png' %}">
@@ -143,7 +134,7 @@
 
             <div class="reminders">
                 <div class="header">
-                    <h2>Amanhã • {{ datas_formatadas.amanha }}</h2>
+                    <h2>Próximos Eventos {{ datas_formatadas.amanha }}</h2>
                     <span class="material-icons-sharp">
                         notifications_none
                     </span>
@@ -151,7 +142,7 @@
 
                 <!-- mudar para mostrar somente os evento de amanha -->
                 {% for evento in eventos_amanha %}
-                <div class="notification">
+                <div class="notification deactive">
                     <div class="icon">
                         <span class="material-icons-sharp">
                             event
@@ -197,7 +188,7 @@
                         <span class="material-icons-sharp">
                             add
                         </span>
-                        <h3>Adicionar Lembrete</h3>
+                        <h3>Adicionar Evento</h3>
                     </div>
                 </div>
 

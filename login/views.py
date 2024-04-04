@@ -23,8 +23,13 @@ def index(request):
             if usuario is not None:
                 auth.login(request, usuario)
                 #messages.success(request, f'{nome} logado com sucesso!')
-                return redirect('home_eventos')
-            else:
+                if 'manter-conectado' in request.POST:
+                    request.session.set_expiry(9999999)
+                    return redirect('home_eventos')
+                else:
+                    request.session.set_expiry(0)  # desloga quando fechar browser
+                    return redirect('home_eventos')
+        else:
                 messages.error(request, 'Login ou Senha Incorretos.')
                 return render(request, 'login/index.html', {'form': form})
 

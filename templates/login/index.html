@@ -1,36 +1,89 @@
-{% extends 'login/base.html' %}
 {% load static %}
 {% block content %}
-<img src="{% static 'assets/images/login/plano-de-fundo-alepe.jpg' %}" alt="iamegemalepe"/>
-<div class="retangulo" >
-    <form class="login-form" method="POST">
-      <form action="{% url 'home_eventos' %}" method="POST">
-        {% csrf_token %}
-        <h2>Login</h2>
-        <div class="row">
-          {% for field in form.visible_fields %}
-          <div >
-            <label for="{{ field.id_for_label }}" >{{field.label}}</label>
-            <div>{{ field }}</div>
-          </div>
-          {% endfor %}
-          {% for message in messages %}
-          <div style="margin-bottom: 10px;color: rgb(231, 31, 31)">
-            <p id="menssagem_erro">{{message}}</p>
-          </div>
-          {% endfor %}
-          <button type="submit">Entrar</button>
-        </div>
-        
+<!DOCTYPE html>
+<html lang="pt-br">
 
-      </form>
-</div>
-{% endblock %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alepe Agenda</title>
+    <link rel="icon" href="{% static 'assets/images/acessar/favicon.ico' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'styles/style-acessar.css' %}">
+    <script src="{%static 'js/acessar.js' %}"></script>
+    <script>
+        function changeImage(){
+            var input = document.getElementById("password");
+            var button = document.getElementById("eyeButton");
+            if (input.type == "password"){
+                input.type = "text";
+                button.style.backgroundImage = "url('{% static 'assets/images/acessar/blue_circular_icon.png' %}')";
+              } else if (input.type == "text") {
+                input.type = "password";
+                button.style.backgroundImage = "url('{% static 'assets/images/acessar/blue_diagonal_line_icon.png' %}') , url('{% static 'assets/images/acessar/blue_circular_icon.png' %}')";
+              }
+        }
 
-<!-- <h2>Login</h2>
-        <label for="username">Usuário:</label>
-        <input type="text" id="username" name="username" required>
-        
-        <label for="password">Senha:</label>
-        <input type="password" id="password" name="password" required>
- -->
+        function changeTypePasswordOnSubmit() {
+            var input = document.getElementById("password");
+            var button = document.getElementById("eyeButton");
+            if (input.type == "text") {
+              input.type = "password";
+              button.style.backgroundImage = "url('{% static 'assets/images/acessar/blue_diagonal_line_icon.png' %}') , url('{% static 'assets/images/acessar/blue_circular_icon.png' %}')";
+            }
+        }
+
+        function limparCampo() {
+            document.getElementById("username").value = "";
+          }
+    </script>
+</head>
+
+<body>
+    <style>
+        body {
+            background-image: url("{% static 'assets/images/acessar/historic_building_reflection_waterfront.png' %}");
+        }
+        .clear-button {
+            background-image: url("{% static 'assets/images/acessar/blue_cross_icon.png' %}");
+        }
+        .eye-button {
+            background-image: url("{% static 'assets/images/acessar/blue_diagonal_line_icon.png' %}") , url("{% static 'assets/images/acessar/blue_circular_icon.png' %}");
+        }
+        .manter-conectado label::after {
+            background-image: url("{% static 'assets/images/acessar/blue_check_mark_icon.png' %}");
+        }
+        .full-screen-container {
+            background-image: url("{% static 'assets/images/acessar/historic_building_reflection_waterfront.png' %}");
+        }
+        </style>
+    <div class="wrapper">
+        <form class="login-form" method="POST">
+            <form action="{% url 'home_eventos' %}" method="POST">
+                {% csrf_token %}
+                <div class="logo">
+                    <img src="{% static 'assets/images/acessar/alepe_logo.png' %}" alt="ALEPE"></img>
+            </div>
+                <div class="input-box">
+                    <span class="textin">Nome de usuário</span>
+                    <input type="text" id="username" name="nome_login"
+                    placeholder="JoaoCampos" required>
+                    <span class="clear-button" onclick="limparCampo()"></span>
+                </div>
+                    <div class="input-box">
+                    <span class="textin">Senha</span>
+                    <input type="password" id="password" name="senha"
+                    placeholder="***********" required>
+                    <span class="eye-button" id="eyeButton" onclick="changeImage()"></span>
+                </div>
+
+                <div class="manter-conectado">
+                    <input type="checkbox" id="chk1" class="checkbox" name="manter-conectado">
+            <label for="chk1">Manter conectado</label>
+                </div>
+    <button type="submit" class="btn" onclick="changeTypePasswordOnSubmit()">ACESSAR AGENDA</button>
+                
+            </form>
+    </div>
+    {% endblock %}
+</body>
+</html>

@@ -32,7 +32,7 @@
                         calendar_view_week
                     </span>
                     <h3>Mes</h3>
-                    <span class="message-count">{{ eventos.quantidade.mes }}</span>
+                    <span class="message-count">{{ eventos.quantidade.mensal }}</span>
                 </a>
                 <a href="#">
                     <span class="material-icons-sharp">
@@ -53,9 +53,8 @@
 
         <!-- main content -->
         <main>
-             <!--colocar as tags aq-->
+            <!--colocar as tags aq-->
             <!-- filtros -->
-            <h1> {{ data.hoje.dia.string }}, {{ data.hoje.formatada.string }} </h1>
             <ul class="filtros">
                 <li>
                     <i class='bx bx-box'></i>
@@ -84,7 +83,7 @@
                 </li>
             </ul>
              <!--dia da semana-->
-            <h1> {{ datas_em_string.dia_da_semana }}, {{ datas_em_string.hoje }} </h1>
+            <h1> {{ data.hoje.dia.string }}, {{ data.hoje.formatada.string }} </h1>
             <!--cards event-->
             <ul class="eventos">
 
@@ -123,7 +122,7 @@
                 </button>
                 <div class="profile">
                     <div class="info">
-                        <p><b> {{ current_user.username }}</b></p>
+                        <p><b> {{ user.username }}</b></p>
                         <small class="text-muted">Suporte</small>
                     </div>
                     <div class="profile-photo">
@@ -136,7 +135,7 @@
 
             <div class="reminders">
                 <div class="header">
-                    <h2>Próximos Eventos • {{ datas_formatadas.amanha }}</h2>
+                    <h2>Próximos Eventos • {{ data.amanha.formatada.DM }}</h2>
                     <span class="material-icons-sharp">
                         notifications_none
                     </span>

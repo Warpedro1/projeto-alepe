@@ -35,22 +35,22 @@ def home_eventos(request):
     dia_de_hoje = datetime.now().date()
     dia_de_amanha = (dia_de_hoje + timedelta(days=1))
     
-    user = request.user # Clayton Aguiar 
+    usuario = request.user # Clayton Aguiar 
 
     eventos = {
-        'quantidade': {
-            'status': {
-                'total': get_all_status_total(),
-                'hoje': get_all_status_hoje(dia_de_hoje)
-            },
-            'mensal': get_eventos_mes_atual(dia_de_hoje).count()
+        'status': { 
+            'hoje': get_count(get_eventos_de_hoje(dia_de_hoje)), 
+            'amanha': get_count(get_eventos_de_amanha(dia_de_amanha)), 
+            'mensal': get_count(get_eventos_do_mes(dia_de_hoje)), 
+            'todos': get_count(get_eventos())
         },
-        'total': get_all_eventos(),
-        'hoje': get_eventos_hoje(dia_de_hoje),
-        'amanha': get_eventos_amanha(dia_de_amanha)
+        'hoje': get_eventos_de_hoje(dia_de_hoje), 
+        'amanha': get_eventos_de_amanha(dia_de_amanha), 
+        'mensal': get_eventos_do_mes(dia_de_hoje), 
+        'todos': get_eventos() 
     }
 
-    data = {        
+    datas = {        
         'hoje': {
             'formatada': {
                 'DM': dia_de_hoje.strftime("%d/%m"), # 31/01
@@ -86,15 +86,15 @@ def home_eventos(request):
     }
 
     return render(request, 'eventos/home_eventos.html', {
-        'user' : user,
+        'usuario' : usuario,
         'eventos': eventos,
-        'data': data
+        'datas': datas
     })
 
-def get_all_eventos():
+def get_eventos():
     return Evento.objects.all()
 
-def get_eventos_hoje(dia):
+def get_eventos_de_hoje(dia):
     eventos = Evento.objects.filter(tempo__date=dia).order_by('tempo')
 
     for evento in eventos:
@@ -102,26 +102,21 @@ def get_eventos_hoje(dia):
 
     return eventos
 
-def get_eventos_amanha(dia):
+def get_eventos_de_amanha(dia):
     return Evento.objects.filter(tempo__date=dia)
 
-def get_all_status_hoje(dia):
-    return status_count(get_eventos_hoje(dia))
+def get_eventos_do_mes(dia):
+    return Evento.objects.filter(tempo__month=dia.month)
 
-def get_all_status_total():
-    return status_count(get_all_eventos())
-
-def status_count(eventos):
+def get_count(eventos):
     status = {
         'agendados': sum(1 for evento in eventos if evento.status == 'AGENDADO'),
         'em_progresso': sum(1 for evento in eventos if evento.status == 'EM PROGRESSO'),
-        'concluidos': sum(1 for evento in eventos if evento.status == 'CONCLUIDO')
+        'concluidos': sum(1 for evento in eventos if evento.status == 'CONCLUIDO'),
+        'total': len(eventos)
     }
 
     return status
-
-def get_eventos_mes_atual(dia):
-    return Evento.objects.filter(tempo__month=dia.month)
     
 def logout_view(request):
     logout(request)

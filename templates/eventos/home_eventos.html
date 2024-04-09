@@ -32,7 +32,7 @@
                         calendar_view_week
                     </span>
                     <h3>Mes</h3>
-                    <span class="message-count">{{ quantidade_eventos_mes_atual }}</span>
+                    <span class="message-count">{{ eventos.quantidade.mes }}</span>
                 </a>
                 <a href="#">
                     <span class="material-icons-sharp">
@@ -55,13 +55,13 @@
         <main>
              <!--colocar as tags aq-->
             <!-- filtros -->
-            <h1> {{ datas_em_string.dia_da_semana }}, {{ datas_em_string.hoje }} </h1>
+            <h1> {{ data.hoje.dia.string }}, {{ data.hoje.formatada.string }} </h1>
             <ul class="filtros">
                 <li>
                     <i class='bx bx-box'></i>
                     <span class="info">
                         <h3>
-                            {{ quantidade_eventos.hoje.agendados }}
+                            {{ eventos.quantidade.hoje.agendados }}
                         </h3>
                         <p>Agendados</p>
                     </span>
@@ -69,7 +69,7 @@
                 <li><i class='bx bx-time-five'></i>
                     <span class="info">
                         <h3>
-                            {{ quantidade_eventos.hoje.em_progresso }}
+                            {{ eventos.quantidade.hoje.em_progresso }}
                         </h3>
                         <p>Progresso</p>
                     </span>
@@ -77,7 +77,7 @@
                 <li><i class='bx bx-check-double'></i>
                     <span class="info">
                         <h3>
-                            {{ quantidade_eventos.hoje.concluidos }}
+                            {{ eventos.quantidade.hoje.concluidos }}
                         </h3>
                         <p>Concluidos</p>
                     </span>
@@ -86,7 +86,8 @@
             <br></br> <!--dia da semana-->
             <!--cards event-->
             <ul class="eventos">
-                {% for evento in eventos_hoje %}
+
+                {% for evento in eventos.hoje %}
                 {% if evento.status == "AGENDADO" %}
                 <li id="agendados">
                     <i class='agendados'></i>
@@ -130,7 +131,7 @@
 
                 <div class="profile">
                     <div class="info">
-                        <p><b> {{ current_user.username }}</b></p>
+                        <p><b> {{ user.username }}</b></p>
                         <small class="text-muted">Suporte</small>
                     </div>
                     <div class="profile-photo">
@@ -143,7 +144,7 @@
 
             <div class="reminders">
                 <div class="header">
-                    <h2>Amanhã • {{ datas_formatadas.amanha }}</h2>
+                    <h2>Amanhã • {{ data.amanha.formatada.DM }}</h2>
                     <span class="material-icons-sharp">
                         notifications_none
                     </span>
@@ -170,27 +171,6 @@
                     </div>
                 </div>
                 {% endfor %}
-
-                <!--
-                <div class="notification deactive">
-                    <div class="icon">
-                        <span class="material-icons-sharp">
-                            event
-                        </span>
-                    </div>
-                    <div class="content">
-                        <div class="info">
-                            <h3>Palestra | Plenario</h3>
-                            <small class="text_muted">
-                                08:00 AM - 12:00 PM
-                            </small>
-                        </div>
-                        <span class="material-icons-sharp">
-                            more_vert
-                        </span>
-                    </div>
-                </div>
-                -->
 
                 <div class="notification add-reminder">
                     <div>

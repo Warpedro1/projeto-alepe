@@ -259,10 +259,12 @@ main .eventos li{
     cursor: pointer;
 }
 #agendados{
-    background-color: var(--light-blue);
+    background-color: #7d8da1;
+    /*background-color: var(--light-blue);*/
 }
 #progresso{
-    background-color: var(--light-progresso);
+    background-color: var(--light-blue);
+    /*background-color: var(--light-progresso);*/
 }
 #concluidos{
     background-color: var(--light-concluido);

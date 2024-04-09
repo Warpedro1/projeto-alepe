@@ -72,6 +72,7 @@
 - ## Execução
 
     >**[ ! ] É importante que o terminal esteja aberto no repositório do projeto com o venv ativo para execução dos póroximos comandos.**
+    - ### Baixar extensão do VsCode para visualização do banco de dados. --> SQlite Viewer
 
     - ### Localmente
 

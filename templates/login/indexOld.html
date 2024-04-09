@@ -1,0 +1,36 @@
+{% extends 'login/base.html' %}
+{% load static %}
+{% block content %}
+<img src="{% static 'assets/images/login/plano-de-fundo-alepe.jpg' %}" alt="iamegemalepe"/>
+<div class="retangulo" >
+    <form class="login-form" method="POST">
+      <form action="{% url 'home_eventos' %}" method="POST">
+        {% csrf_token %}
+        <h2>Login</h2>
+        <div class="row">
+          {% for field in form.visible_fields %}
+          <div >
+            <label for="{{ field.id_for_label }}" >{{field.label}}</label>
+            <div>{{ field }}</div>
+          </div>
+          {% endfor %}
+          {% for message in messages %}
+          <div style="margin-bottom: 10px;color: rgb(231, 31, 31)">
+            <p id="menssagem_erro">{{message}}</p>
+          </div>
+          {% endfor %}
+          <button type="submit">Entrar</button>
+        </div>
+        
+
+      </form>
+</div>
+{% endblock %}
+
+<!-- <h2>Login</h2>
+        <label for="username">Usuário:</label>
+        <input type="text" id="username" name="username" required>
+        
+        <label for="password">Senha:</label>
+        <input type="password" id="password" name="password" required>
+ -->

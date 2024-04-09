@@ -83,7 +83,8 @@
                     </span>
                 </li>
             </ul>
-            <br></br> <!--dia da semana-->
+             <!--dia da semana-->
+            <h1> {{ datas_em_string.dia_da_semana }}, {{ datas_em_string.hoje }} </h1>
             <!--cards event-->
             <ul class="eventos">
 
@@ -120,18 +121,9 @@
                         menu
                     </span>
                 </button>
-                <div class="dark-mode">
-                    <span class="material-icons-sharp active">
-                        light_mode
-                    </span>
-                    <span class="material-icons-sharp">
-                        dark_mode
-                    </span>
-                </div>
-
                 <div class="profile">
                     <div class="info">
-                        <p><b> {{ user.username }}</b></p>
+                        <p><b> {{ current_user.username }}</b></p>
                         <small class="text-muted">Suporte</small>
                     </div>
                     <div class="profile-photo">
@@ -144,7 +136,7 @@
 
             <div class="reminders">
                 <div class="header">
-                    <h2>Amanhã • {{ data.amanha.formatada.DM }}</h2>
+                    <h2>Amanhã • {{ datas_formatadas.amanha }}</h2>
                     <span class="material-icons-sharp">
                         notifications_none
                     </span>
@@ -152,7 +144,7 @@
 
                 <!-- mudar para mostrar somente os evento de amanha -->
                 {% for evento in eventos_amanha %}
-                <div class="notification">
+                <div class="notification deactive">
                     <div class="icon">
                         <span class="material-icons-sharp">
                             event
@@ -177,7 +169,7 @@
                         <span class="material-icons-sharp">
                             add
                         </span>
-                        <h3>Adicionar Lembrete</h3>
+                        <h3>Adicionar Evento</h3>
                     </div>
                 </div>
 

@@ -8,7 +8,7 @@ class LoginForms(forms.Form):
         widget=forms.TextInput(
             attrs={
                 'class': 'form-control',
-                'placeholder': 'Ex.: Gordo',
+                'placeholder': 'exemplo@gmail.com',
             }
         ),
     )
@@ -19,7 +19,7 @@ class LoginForms(forms.Form):
         widget=forms.PasswordInput(
             attrs={
                 'class': 'form-control',
-                'placeholder': 'Digite a sua senha',
+                'placeholder': '************',
             }
         ),
     )

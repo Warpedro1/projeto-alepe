@@ -92,7 +92,6 @@ def admin_view(request):
     if usuario.is_superuser:
         return render(request, 'admin/', admin.site.urls)
 
-
 def get_eventos():
     return Evento.objects.all()
 
@@ -114,8 +113,11 @@ def get_count(eventos):
     }
 
     return count
+
+def formatar_horário(eventos):
+    fuso_horario = timedelta(hours=-3)
+
+    for evento in eventos:
+        evento.tempo = (evento.tempo + fuso_horario).strftime("%H:%M")
     
-    
-def logout_view(request):
-    logout(request)
-    return render(request, 'eventos/home_eventos.html')
+    return eventos

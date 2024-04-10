@@ -1,5 +1,6 @@
 from django.shortcuts import redirect, render
 from django.contrib.auth.decorators import login_required
+from eventos import admin
 from eventos.models import Evento
 from datetime import datetime, timedelta
 from django.contrib.auth import logout
@@ -14,6 +15,7 @@ status = {
 
 # @login_required(login_url='index.html')
 def home_eventos(request):
+    usuario = request.user # Clayton Aguiar 
     dia_de_hoje = datetime.now().date()
     dia_de_amanha = (dia_de_hoje + timedelta(days=1))
 
@@ -41,8 +43,6 @@ def home_eventos(request):
         10: "Novembro",
         11: "Dezembro"
     }
-
-    usuario = request.user # Clayton Aguiar 
 
     eventos = {
         'status': { 
@@ -98,6 +98,16 @@ def home_eventos(request):
         'datas': datas
     })
 
+def logout_view(request):
+    logout(request)
+    return render(request, 'eventos/home_eventos.html')
+
+def admin_view(request):
+    usuario = request.user # Clayton Aguiar
+    if usuario.is_superuser:
+        return render(request, 'admin/', admin.site.urls)
+
+
 def get_eventos():
     return Evento.objects.all()
 
@@ -137,6 +147,3 @@ def get_count(eventos):
     return count
     
     
-def logout_view(request):
-    logout(request)
-    return render(request, 'eventos/home_eventos.html')

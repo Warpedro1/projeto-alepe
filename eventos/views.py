@@ -12,7 +12,7 @@ status = {
     2: "CONCLUIDO"
 }
 
-# @login_required(login_url='index.html')
+@login_required
 def home_eventos(request):
     # Variáveis
     dia_de_hoje = datetime.now().date()

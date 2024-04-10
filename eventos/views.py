@@ -5,36 +5,43 @@ from datetime import datetime, timedelta
 from django.contrib.auth import logout
 from login.views import index
 
-dias_da_semana = {
-    0: "Segunda",
-    1: "Terça",
-    2: "Quarta",
-    3: "Quinta",
-    4: "Sexta",
-    5: "Sábado",
-    6: "Domingo"
+status = {
+    0: "agendado",
+    1: "em progresso",
+    2: "concluido"
 }
 
-meses = {
-    0: "Janeiro",
-    1: "Fevereiro",
-    2: "Março",
-    3: "Abril",
-    4: "Maio",
-    5: "Junho",
-    6: "Julho",
-    7: "Agosto",
-    8: "Setembro",
-    9: "Outubro",
-    10: "Novembro",
-    11: "Dezembro",
-}
 
 # @login_required(login_url='index.html')
 def home_eventos(request):
     dia_de_hoje = datetime.now().date()
     dia_de_amanha = (dia_de_hoje + timedelta(days=1))
-    
+
+    dias_da_semana = {
+        0: "Segunda",
+        1: "Terça",
+        2: "Quarta",
+        3: "Quinta",
+        4: "Sexta",
+        5: "Sábado",
+        6: "Domingo"
+    }
+
+    meses = {
+        0: "Janeiro",
+        1: "Fevereiro",
+        2: "Março",
+        3: "Abril",
+        4: "Maio",
+        5: "Junho",
+        6: "Julho",
+        7: "Agosto",
+        8: "Setembro",
+        9: "Outubro",
+        10: "Novembro",
+        11: "Dezembro"
+    }
+
     usuario = request.user # Clayton Aguiar 
 
     eventos = {
@@ -109,14 +116,26 @@ def get_eventos_do_mes(dia):
     return Evento.objects.filter(tempo__month=dia.month)
 
 def get_count(eventos):
-    status = {
-        'agendados': sum(1 for evento in eventos if evento.status == 'AGENDADO'),
-        'em_progresso': sum(1 for evento in eventos if evento.status == 'EM PROGRESSO'),
-        'concluidos': sum(1 for evento in eventos if evento.status == 'CONCLUIDO'),
+    count = {
+        'agendados': sum(1 for evento in eventos if evento.status == status[0].upper()),
+        'em_progresso': sum(1 for evento in eventos if evento.status == status[1].upper()),
+        'concluidos': sum(1 for evento in eventos if evento.status == status[2].upper()),
         'total': len(eventos)
     }
 
-    return status
+    return count
+
+def get_count(eventos):
+    
+    count = {
+        'total': len(eventos),
+        'agendados': sum(1 for evento in eventos if evento.status == status[0].upper()),
+        'em_progresso': sum(1 for evento in eventos if evento.status == status[1].upper()),
+        'concluidos': sum(1 for evento in eventos if evento.status == status[2].upper())
+    }
+
+    return count
+    
     
 def logout_view(request):
     logout(request)

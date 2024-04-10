@@ -1,32 +1,28 @@
-from django.shortcuts import redirect, render
-from django.contrib.auth.decorators import login_required
+from django.shortcuts import render
 from eventos import admin
 from eventos.models import Evento
 from datetime import datetime, timedelta
 from django.contrib.auth import logout
-from login.views import index
 
-status = {
-    0: "AGENDADO",
-    1: "EM PROGRESSO",
-    2: "CONCLUIDO"
-}
+# from django.shortcuts import redirect
+# from django.contrib.auth.decorators import login_required
+# from login.views import index
 
 # @login_required(login_url='index.html')
+
 def home_eventos(request):
     # Variáveis
     dia_de_hoje = datetime.now().date()
     dia_de_amanha = (dia_de_hoje + timedelta(days=1))
-
+    
     dias_da_semana = {i: dia for i, dia in enumerate(
-        ["Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado", "Domingo"]
+        ["Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sábado", "Domingo"]
     )}
 
     meses = {i: mes for i, mes in enumerate(
         ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"]
     )}
 
-    #
     usuario = request.user # Clayton Aguiar 
 
     eventos = {
@@ -45,13 +41,13 @@ def home_eventos(request):
     datas = {        
         'hoje': {
             'formatada': {
-                'DM': dia_de_hoje.strftime("%d/%m"), # 31/01
-                'DMA':  dia_de_hoje.strftime("%d/%m/%Y"), # 31/01/2023
-                'string': dia_de_hoje # 31 de Janeiro de 2023
+                'DM': dia_de_hoje.strftime("%d/%m"), # 31/12
+                'DMA':  dia_de_hoje.strftime("%d/%m/%Y"), # 31/12/2023
+                'string': dia_de_hoje # 31 de Dezembro de 2023
             },
             'dia': {
                 'numerico': dia_de_hoje.strftime("%d"), # 31
-                'string': dias_da_semana[dia_de_hoje.weekday()] # Terça
+                'string': dias_da_semana[dia_de_hoje.weekday()] # Domingo
             }, 
             'mes': {
                 'numerico': dia_de_hoje.strftime("%m"), # 01
@@ -61,19 +57,19 @@ def home_eventos(request):
         },
         'amanha': {
             'formatada': {
-                'DM': dia_de_amanha.strftime("%d/%m"), # 01/02
-                'DMA':  dia_de_amanha.strftime("%d/%m/Y"), # 01/02/2023
-                'string': dia_de_amanha # 1 de Fevereiro de 2023 
+                'DM': dia_de_amanha.strftime("%d/%m"), # 01/01
+                'DMA':  dia_de_amanha.strftime("%d/%m/Y"), # 01/01/2024
+                'string': dia_de_amanha # 1 de Janeiro de 2024
             },
             'dia': {
                 'numerico': dia_de_amanha.strftime("%d"), # 01
-                'string': dias_da_semana[dia_de_amanha.weekday()] # Quarta
+                'string': dias_da_semana[dia_de_amanha.weekday()] # Segunda-feira
             }, 
             'mes': {
-                'numerico': dia_de_amanha.strftime("%m"), # 02
-                'string':  meses[dia_de_amanha.month] # Fevereiro
+                'numerico': dia_de_amanha.strftime("%m"), # 01
+                'string':  meses[dia_de_amanha.month] # Janeiro
             },
-            'ano': dia_de_amanha.strftime("%Y") # 2023
+            'ano': dia_de_amanha.strftime("%Y") # 2024
         }
     }
 
@@ -89,6 +85,7 @@ def logout_view(request):
 
 def admin_view(request):
     usuario = request.user # Clayton Aguiar
+
     if usuario.is_superuser:
         return render(request, 'admin/', admin.site.urls)
 
@@ -99,17 +96,21 @@ def get_eventos_de_hoje(dia):
     return formatar_horário(Evento.objects.filter(tempo__date=dia).order_by('tempo'))
 
 def get_eventos_de_amanha(dia):
-    return Evento.objects.filter(tempo__date=dia)
+    return Evento.objects.filter(tempo__date=dia).order_by('tempo')
 
 def get_eventos_do_mes(dia):
     return Evento.objects.filter(tempo__month=dia.month)
 
 def get_count(eventos):
+    tipo_do_status = {i: status for i, status in enumerate(
+        ["AGENDADO", "EM PROGRESSO", "CONCLUIDO"]
+    )}
+
     count = {
         'total': len(eventos),
-        'agendados': sum(1 for evento in eventos if evento.status == status[0]),
-        'em_progresso': sum(1 for evento in eventos if evento.status == status[1]),
-        'concluidos': sum(1 for evento in eventos if evento.status == status[2])
+        'agendados': sum(1 for evento in eventos if evento.status == tipo_do_status[0]),
+        'em_progresso': sum(1 for evento in eventos if evento.status == tipo_do_status[1]),
+        'concluidos': sum(1 for evento in eventos if evento.status == tipo_do_status[2])
     }
 
     return count

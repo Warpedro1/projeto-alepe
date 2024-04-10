@@ -12,15 +12,15 @@
     --color-dark-variant: #677483;
     --color-background: #f6f6f9;
     --light: #f6f6f9;
-    --light-blue: #CFE8FF;
+    --light-blue: #CFE8FF; /*pogresso*/
     --grey: #eee;
     --dark-grey: #AAAAAA;
     --dark: #363949;
 	--light-danger: #FECDD3;
     --progresso: #FBC02D;
-    --light-progresso: #E2E0FF;
-    --concluido: #388E3C;
-    --light-concluido: #BBF7D0;
+    --light-progresso: #E2E0FF; /*agendado*/
+    --concluido: #388E3C; 
+    --light-concluido: #BBF7D0; /*concruido*/
 
     --card-border-radius: 1rem;
     --border-radius-1: 0.5rem;
@@ -552,16 +552,25 @@ main .recent-orders a{
     width: 100%;
 }
 
-.right-section .reminders .notification .icon{
+.right-section .reminders .notification .status.agendados,
+.right-section .reminders .notification .status.em.progresso,
+.right-section .reminders .notification .status.concluidos {
     padding: 0.6rem;
-    color: var(--color-white);
     background-color: var(--color-concluido);
     border-radius: 20%;
     display: flex;
 }
 
-.right-section .reminders .notification.deactive .icon{
-    background-color: var(--color-danger);
+.right-section .reminders .notification.deactive .status.agendados {
+    background-color: var(--light-progresso);
+}
+
+.right-section .reminders .notification.deactive .status.em.progresso {
+    background-color: var(--light-blue);
+}
+
+.right-section .reminders .notification.deactive .status.concluidos {
+    background-color: var(--light-concluido);
 }
 
 .right-section .reminders .add-reminder{

@@ -15,7 +15,7 @@
             </div>
 
             <div class="sidebar">
-                <a href="#">
+                <a href="/admin/eventos/evento">
                     <span class="material-icons-sharp">
                         settings
                     </span>
@@ -86,7 +86,6 @@
             <h1> {{ datas.hoje.dia.string }}, {{ datas.hoje.formatada.string }} </h1>
             <!--cards event-->
             <ul class="eventos">
-
                 {% for evento in eventos.hoje %}
                 {% if evento.status == "AGENDADO" %}
                 <li id="agendados">
@@ -100,7 +99,7 @@
                 {% endif %}
                     <span class="info">
                         <d1>
-                            <dt>{{ evento.nome }}     |   {{ evento.tempo }}</dt>
+                            <dt>{{ evento.nome }}    •    {{ evento.tempo }}</dt>
                             <dd>{{ evento.solicitante }}</dd>
                             <dd>{{ evento.lugar }}</dd>
                             <dd>{{ evento.descricao }}</dd>
@@ -135,23 +134,33 @@
 
             <div class="reminders">
                 <div class="header">
-                    <h2>Próximos Eventos • {{ datas.amanha.formatada.DM }}</h2>
+                    <h2>Amanhã • {{ datas.amanha.formatada.DM }}</h2>
                     <span class="material-icons-sharp">
                         notifications_none
                     </span>
                 </div>
 
-                <!-- mudar para mostrar somente os evento de amanha -->
+
                 {% for evento in eventos.amanha %}
                 <div class="notification deactive">
-                    <div class="icon">
-                        <span class="material-icons-sharp">
+                        <!--<span class="material-icons-sharp">
                             event
-                        </span>
+                        </span>-->
+                    {% if evento.status == "AGENDADO" %}
+                    <div class="status agendados">
+                        <i class='bx bx-box'>
+                    {% elif evento.status == "EM PROGRESSO" %}
+                    <div class="status em progresso">
+                        <i class='bx bx-time-five'>
+                    {% elif evento.status == "CONCLUIDO" %}
+                    <div class="status concluidos">
+                        <i class='bx bx-check-double'>
+                    {% endif %}
+                        </i>
                     </div>
                     <div class="content">
                         <div class="info">
-                            <h3>{{ evento.nome }} | {{ evento.lugar }}</h3>
+                            <h3>{{ evento.nome }} • {{ evento.lugar }}</h3>
                             <small class="text_muted">
                                {{ evento.tempo }}
                             </small>

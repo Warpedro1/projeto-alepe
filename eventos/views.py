@@ -6,42 +6,26 @@ from django.contrib.auth import logout
 from login.views import index
 
 status = {
-    0: "agendado",
-    1: "em progresso",
-    2: "concluido"
+    0: "AGENDADO",
+    1: "EM PROGRESSO",
+    2: "CONCLUIDO"
 }
-
 
 # @login_required(login_url='index.html')
 def home_eventos(request):
+    # Variáveis
     dia_de_hoje = datetime.now().date()
     dia_de_amanha = (dia_de_hoje + timedelta(days=1))
 
-    dias_da_semana = {
-        0: "Segunda",
-        1: "Terça",
-        2: "Quarta",
-        3: "Quinta",
-        4: "Sexta",
-        5: "Sábado",
-        6: "Domingo"
-    }
+    dias_da_semana = {i: dia for i, dia in enumerate(
+        ["Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado", "Domingo"]
+    )}
 
-    meses = {
-        0: "Janeiro",
-        1: "Fevereiro",
-        2: "Março",
-        3: "Abril",
-        4: "Maio",
-        5: "Junho",
-        6: "Julho",
-        7: "Agosto",
-        8: "Setembro",
-        9: "Outubro",
-        10: "Novembro",
-        11: "Dezembro"
-    }
+    meses = {i: mes for i, mes in enumerate(
+        ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"]
+    )}
 
+    #
     usuario = request.user # Clayton Aguiar 
 
     eventos = {
@@ -102,12 +86,7 @@ def get_eventos():
     return Evento.objects.all()
 
 def get_eventos_de_hoje(dia):
-    eventos = Evento.objects.filter(tempo__date=dia).order_by('tempo')
-
-    for evento in eventos:
-        evento.tempo = evento.tempo.strftime("%H:%M")
-
-    return eventos
+    return formatar_horário(Evento.objects.filter(tempo__date=dia).order_by('tempo'))
 
 def get_eventos_de_amanha(dia):
     return Evento.objects.filter(tempo__date=dia)
@@ -117,25 +96,21 @@ def get_eventos_do_mes(dia):
 
 def get_count(eventos):
     count = {
-        'agendados': sum(1 for evento in eventos if evento.status == status[0].upper()),
-        'em_progresso': sum(1 for evento in eventos if evento.status == status[1].upper()),
-        'concluidos': sum(1 for evento in eventos if evento.status == status[2].upper()),
-        'total': len(eventos)
-    }
-
-    return count
-
-def get_count(eventos):
-    
-    count = {
         'total': len(eventos),
-        'agendados': sum(1 for evento in eventos if evento.status == status[0].upper()),
-        'em_progresso': sum(1 for evento in eventos if evento.status == status[1].upper()),
-        'concluidos': sum(1 for evento in eventos if evento.status == status[2].upper())
+        'agendados': sum(1 for evento in eventos if evento.status == status[0]),
+        'em_progresso': sum(1 for evento in eventos if evento.status == status[1]),
+        'concluidos': sum(1 for evento in eventos if evento.status == status[2])
     }
 
     return count
+
+def formatar_horário(eventos):
+    fuso_horario = timedelta(hours=-3)
+
+    for evento in eventos:
+        evento.tempo = (evento.tempo + fuso_horario).strftime("%H:%M")
     
+    return eventos
     
 def logout_view(request):
     logout(request)

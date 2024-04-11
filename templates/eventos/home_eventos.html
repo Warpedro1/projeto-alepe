@@ -27,7 +27,7 @@
                     </span>
                     <h3>Dashboard</h3>
                 </a>
-                <a href="calendario">
+                <a href="/">
                     <span class="material-icons-sharp">
                         calendar_view_week
                     </span>
@@ -40,7 +40,7 @@
                     </span>
                     <h3>
                         <!-- form para logout -->
-                        <form action="/" method="post">
+                        <form action="login" method="post">
                             {% csrf_token %}
                             {{ logout_view }}
                         <button type="submit">Logout</button>

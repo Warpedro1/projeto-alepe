@@ -1,5 +1,15 @@
-<h1>tela calendario</h1>
+<h1 style="text-align: center;">tela calendario</h1>
 <br>
-<a href="/">
-    <h3>Fazer login</h3>
+
+{% if not usuario.is_authenticated %}
+<a href="login">
+    <h1>Fazer login</h1>
 </a>
+{% endif %}
+
+
+{% if usuario.is_authenticated %}
+<a href="home_eventos">
+    <h1>DASHBOARD</h1>
+</a>
+{% endif %}

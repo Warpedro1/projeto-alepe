@@ -4,7 +4,7 @@ from django.contrib import auth, messages
 from login.forms import LoginForms
 
 
-def index(request):
+def login(request):
     form = LoginForms()
 
     if request.method=='POST':
@@ -31,6 +31,6 @@ def index(request):
                     return redirect('home_eventos')
         else:
                 messages.error(request, 'Login ou Senha Incorretos.')
-                return render(request, 'login/index.html', {'form': form})
+                return render(request, 'login/login.html', {'form': form})
 
-    return render(request, 'login/index.html', {'form': form})
+    return render(request, 'login/login.html', {'form': form})

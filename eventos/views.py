@@ -2,14 +2,9 @@ from django.shortcuts import render
 from eventos import admin
 from eventos.models import Evento
 from datetime import datetime, timedelta
-from django.contrib.auth import logout
+from django.contrib.auth.decorators import login_required
 
-# from django.shortcuts import redirect
-# from django.contrib.auth.decorators import login_required
-# from login.views import index
-
-# @login_required(login_url='index.html')
-
+@login_required(login_url='/login')
 def home_eventos(request):
     # Variáveis
     dia_de_hoje = datetime.now().date()
@@ -78,10 +73,6 @@ def home_eventos(request):
         'eventos': eventos,
         'datas': datas
     })
-
-def logout_view(request):
-    logout(request)
-    return render(request, 'eventos/home_eventos.html')
 
 def admin_view(request):
     usuario = request.user # Clayton Aguiar

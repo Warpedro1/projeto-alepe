@@ -34,19 +34,15 @@
                     <h3>Calendário</h3>
                     <span class="message-count">{{ eventos.status.mensal.total }}</span>
                 </a>              
-                <a href="#">
-                    <span class="material-icons-sharp">
-                        logout
-                    </span>
-                    <h3>
-                        <!-- form para logout -->
-                        <form action="login" method="post">
-                            {% csrf_token %}
-                            {{ logout_view }}
-                        <button type="submit">Logout</button>
-                        </form>
-                    </h3>
-                </a>
+                <form action="{% url 'logout' %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit">
+                        <span class="material-icons-sharp">
+                            logout
+                        </span>
+                        <span>Logout</span>
+                    </button>
+                </form>                
             </div>
         </aside>
         <!-- fim sidebar section -->
@@ -172,14 +168,14 @@
                 </div>
                 {% endfor %}
 
+                <a href="/admin/eventos/evento/add/">
                 <div class="notification add-reminder">
-                    <div>
                         <span class="material-icons-sharp">
                             add
                         </span>
                         <h3>Adicionar Evento</h3>
                     </div>
-                </div>
+                </a>
 
             </div>
 

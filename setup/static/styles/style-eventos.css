@@ -69,6 +69,7 @@ body{
 }
 
 a{
+    cursor: pointer;
     color: var(--color-dark);
 }
 
@@ -91,6 +92,7 @@ h2{
 h3{
     font-weight: 500;
     font-size: 0.87rem;
+    font-family: 'Poppins', sans-serif;
 }
 
 small{
@@ -134,6 +136,7 @@ b{
 }
 
 aside{
+    width: 190px;
     height: 100vh;
 }
 
@@ -160,6 +163,7 @@ aside .toggle .close{
 }
 
 aside .sidebar{
+    
     display: flex;
     flex-direction: column;
     
@@ -439,6 +443,7 @@ main .recent-orders a{
 }
 
 .right-section .nav button{
+    font-family: 'Poppins', sans-serif;
     display: none;
 }
 

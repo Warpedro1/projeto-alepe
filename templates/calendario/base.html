@@ -1,0 +1,164 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Alepe Suporte</title>
+    <link rel="icon" href="{% static 'assets/images/acessar/favicon.ico' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'styles/style-eventos.css' %}?{% now "U" %}">
+    <link rel="shortcut icon" type="image/png" href="{% static 'assets/icons/icone-alepe 1.png' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>Agenda Alepe</title>
+</head>
+<body>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+        }
+        .navbar {
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center
+        }
+        .navbar-brand {
+            color: #1f0086e8;
+            text-decoration: none;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .navbar-menu {
+            display: flex;
+            gap: 20px;
+        }
+        .navbar-menu a {
+            color: #333;
+            text-decoration: none;
+            font-size: 16px;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .navbar-menu a:hover {
+            background-color: #ddd;
+        }
+        .active {
+            background-color: #2a0083 !important;
+            color: #fff !important;
+        }
+        .search-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        .search-container input[type=text] {
+            padding: 10px;
+            border: none;
+            background-color: #f3f3f3;
+            border-radius: 5px 0 0 5px;
+            width: 200px;
+            transition: width 0.3s;
+        }
+        .search-container input[type=text]:focus {
+            width: 300px;
+        }
+        .search-icon {
+            position: absolute;
+            right: 0;
+            background-color: #1f0086e8;
+            color: #fff;
+            padding: 10px;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+        }
+        .profile {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .profile img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+        .profile a {
+            color: #333;
+            text-decoration: none;
+            font-size: 16px;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .profile a:hover {
+            background-color: #ddd;
+        }
+        .card {
+            background-color: #1f0086e8;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+    </style>
+    </head>
+    <body>
+    
+    <div class="navbar">
+        <a href="#" class="navbar-brand">Agenda Alepe</a>
+        <div id="clock" class="card">00:00</div>
+        <div class="navbar-menu">
+            <a href="#" id="dashboardBtn">Dashboard</a>
+            <a href="#" id="calendarioBtn">Calendario</a>
+            <a href="#" id="adminBtn">Admin</a>
+        </div>
+        <div class="search-container">
+            <input type="text" placeholder="Pesquisar evento...">
+            <i class="fas fa-search search-icon"></i>
+        </div>
+        <div class="profile">
+            <img src="static/assets/icons/icone-alepe 1.png" alt="User Profile">
+            <p><b> {{ usuario.username }}</b></p>
+            <a href="#">Logout</a>
+        </div>
+    </div>
+    
+    <script>
+        // funcao atulaixzar relogio
+        function updateClock() {
+            var now = new Date();
+            var hours = now.getHours();
+            var minutes = now.getMinutes();
+            hours = hours < 10 ? '0' + hours : hours;
+            minutes = minutes < 10 ? '0' + minutes : minutes;
+            document.getElementById('clock').innerText = hours + ':' + minutes;
+            setTimeout(updateClock, 1000);
+        }
+    
+        updateClock();
+    
+        // funcao pagina atual botao
+        var currentPage = "calendario"; 
+        var dashboardBtn = document.getElementById('dashboardBtn');
+        var calendarioBtn = document.getElementById('calendarioBtn');
+        var adminBtn = document.getElementById('adminBtn');
+    
+        if (currentPage === "dashboard") {
+            dashboardBtn.classList.add('active');
+        } else if (currentPage === "calendario") {
+            calendarioBtn.classList.add('active');
+        } else if (currentPage === "admin") {
+            adminBtn.classList.add('active');
+        }
+    </script>
+    {% block content %}{% endblock %}
+</body>
+</html>

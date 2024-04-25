@@ -17,8 +17,11 @@ def get_dias_da_semana():
         ["Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sábado", "Domingo"]
     )}
 
+def get_mes_atual():
+    return get_meses()[get_hoje().month]
+
 def get_meses():
-    return {i: mes for i, mes in enumerate(
+    return {i+1: mes for i, mes in enumerate(
         ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"]
     )}
 
@@ -32,7 +35,7 @@ def eventos():
         },
         'hoje': get_eventos_de_hoje(get_hoje()), 
         'amanha': get_eventos_de_amanha(get_amanha()), 
-        'mensal': get_eventos_do_mes(get_hoje()), 
+        'mensal': get_eventos_do_mes(get_hoje()),
         'todos': get_eventos() 
     }
 

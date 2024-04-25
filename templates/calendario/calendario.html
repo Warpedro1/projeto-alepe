@@ -1,9 +1,8 @@
-{% extends 'calendario/base.html' %}
+{% extends '../base.html' %}
 {% load static %}
 {% block content %}
 <body>
-    <h1>Calendario</h1>
-    <h2>{{ mes_atual }}</h2>
+    <h1>{{ mes_atual }}</h1>
     {% for data, eventos in eventos_mes.items %}
         <h2>dia: {{ data }}</h2>
         <ul>
@@ -19,20 +18,5 @@
             {% endfor %}
         </ul>
     {% endfor %}
-
-{% if not usuario.is_authenticated %}
-<a href="login">
-    <h1>Fazer login</h1>
-</a>
-{% endif %}
-
-
-{% if usuario.is_authenticated %}
-<a href="home_eventos">
-    <h1>DASHBOARD</h1>
-</a>
-{% endif %}
-
-<p>{{ usuario }}</p>
 
 {% endblock %}

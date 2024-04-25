@@ -1,13 +1,12 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alepe Agenda</title>
     <link rel="icon" href="{% static 'assets/images/acessar/favicon.ico' %}" type="image/x-icon">
-    <link rel="stylesheet" href="{% static 'styles/style-acessar.css' %}?{% now "U" %}">
+    <link rel="stylesheet" href="{% static 'styles/style-login.css' %}?{% now "U" %}">
     <script src="{%static 'js/acessar.js' %}"></script>
     <script>
         function changeImage(){
@@ -61,28 +60,28 @@
                 {% csrf_token %}
                 <div class="logo">
                     <img src="{% static 'assets/images/acessar/alepe_logo.png' %}" alt="ALEPE"></img>
-            </div>
+                </div>
                 <div class="input-box">
                     <span class="textin">Nome de usuário</span>
                     <input type="text" id="username" name="nome_login"
-                    placeholder="JoaoCampos" required>
+                    placeholder="usuario@alepe.pe.gov.br" required>
                     <span class="clear-button" onclick="limparCampo()"></span>
                 </div>
-                    <div class="input-box">
+                <div class="input-box">
                     <span class="textin">Senha</span>
-                    <input type="password" id="password" name="senha"
-                    placeholder="***********" required>
+                    <input type="password" id="password" name="senha" required>
                     <span class="eye-button" id="eyeButton" onclick="changeImage()"></span>
                 </div>
-
                 <div class="manter-conectado">
                     <input type="checkbox" id="chk1" class="checkbox" name="manter-conectado">
-            <label for="chk1">Manter conectado</label>
+                    <label for="chk1">Manter conectado</label>
                 </div>
-    <button type="submit" class="btn" onclick="changeTypePasswordOnSubmit()">ACESSAR AGENDA</button>
-                
-    <a href="/" style="margin-left: 30px;">Voltar</a>
+                <button type="submit" class="btn" onclick="changeTypePasswordOnSubmit()">
+                    ACESSAR AGENDA
+                </button>
+                <a href="/" style="margin-left: 30px;">Voltar</a>
             </form>
-        </div>
-    </body>
+        </form>
+    </div>
+</body>
 </html>

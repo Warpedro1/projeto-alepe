@@ -1,5 +1,24 @@
-<h1 style="text-align: center;">tela calendario</h1>
-<br>
+{% extends 'calendario/base.html' %}
+{% load static %}
+{% block content %}
+<body>
+    <h1>Calendario</h1>
+    <h2>{{ mes_atual }}</h2>
+    {% for data, eventos in eventos_mes.items %}
+        <h2>dia: {{ data }}</h2>
+        <ul>
+            {% for evento in eventos %}
+                <li>
+                    <strong>Nome do evento:</strong> {{ evento.nome }}<br>
+                    <strong>Solicitante:</strong> {{ evento.solicitante }}<br>
+                    <strong>Tempo:</strong> {{ evento.tempo }}<br>
+                    <strong>Lugar:</strong> {{ evento.lugar }}<br>
+                    <strong>Descrição:</strong> {{ evento.descricao }}<br>
+                    <strong>Status:</strong> {{ evento.status }}<br>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endfor %}
 
 {% if not usuario.is_authenticated %}
 <a href="login">
@@ -13,3 +32,7 @@
     <h1>DASHBOARD</h1>
 </a>
 {% endif %}
+
+<p>{{ usuario }}</p>
+
+{% endblock %}

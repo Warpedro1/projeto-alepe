@@ -5,8 +5,8 @@
 :root{
   --color-background: #f8f8ff;
   --color-danger: #312DDC;
-  --color-input-box: rgba(125,106,92,0.07999999821186066);
-  --color-inputplaceholder: #7d6a5c7a;
+  --color-input-box: rgba(92, 93, 125, 0.08);
+  --color-inputplaceholder: #5c5e7d7a;
   --color-dangerold: rgba(48,45,220,1);
 }
 
@@ -112,6 +112,39 @@ position: relative;
   filter: brightness(200%);
 }
 
+.arrow-button {
+  position: absolute;
+  right: 150px;
+  top: 65%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  background-image: url('assets/images/acessar/blue_arrow_icon.png');
+  background-size: cover;
+  background-position: center;
+  width: 25px;
+  height: 25px;
+}
+
+.arrow{
+  content: "";
+  position: absolute;
+  top: 20%;
+  left: 0.75em;
+  right: 100px;
+  width: 30px;
+  height: 30px;
+  background-image: url('assets/images/acessar/blue_arrow_icon.png');
+  background-size: cover;
+  color: #fff;
+  opacity: 0;
+  transition: all 0.2s ease;
+}
+
+.arrow:hover {
+  transition: all 0.2s ease;
+  filter: brightness(200%);
+}
+
 .eye-button {
   position: absolute;
   right: 150px;
@@ -213,6 +246,25 @@ position: relative;
   accent-color: var(--color-danger);
 }
 
+.outside .btnvoltar{
+  width: 50%;
+  height: 5%;
+  background: var(--color-danger);
+  outline: none;
+  border-radius: 0.5rem;
+  color: #fff;
+  font-weight: bold;
+  bottom: 30px;
+  transform: translateX(50%);
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  font-size: 28px;
+  cursor:pointer;
+  transition: all 0.3s ease;
+  border: 2px groove var(--color-danger);
+}
+
 .wrapper .btn {
   width: 50%;
   height: 10%;
@@ -245,4 +297,12 @@ position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.mensagem_erro {
+  text-align: left;
+  font-size: 12px;
+  margin-bottom: 10px;
+  display:block;
+  color: rgb(231, 31, 31)
 }

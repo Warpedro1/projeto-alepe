@@ -18,8 +18,8 @@
 }
 
 body {
-    margin: 0;
-    overflow: hidden;
+  margin: 0;
+  overflow: hidden;
   display:flex;
   justify-content: center;
   align-items: center;
@@ -30,19 +30,16 @@ body {
 }
 
 .wrapper {
-  background: #fff;
+  background: #ffffff;
   color: #000000;
   width: 740px;
   height: 660px;
   opacity: 1;
   position: absolute;
   margin: 50%;
-  border-top-left-radius: 90px;
-  border-top-right-radius: 90px;
-  border-bottom-left-radius: 90px;
-  border-bottom-right-radius: 90px;
+  border-radius: 1.5rem;
   box-shadow: 0px 20px 74px rgba(0, 0, 0, 0.25);
-  overflow: hidden;
+  /*overflow: hidden;*/
 }
 
 .wrapper .logo img{
@@ -235,7 +232,26 @@ position: relative;
 .wrapper .btn:hover {
   background: white;
   color: var(--color-danger)
-  }
+}
+
+.arrow-button{
+  position: absolute;
+  top: 29px;
+  left: 0.75em;
+  right: 100px;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  background-image: url('assets/images/acessar/blue_arrow_icon.png');
+  background-size: cover;
+  background-position: center;
+  transition: all 0.2s ease;
+}
+
+.arrow-button:hover {
+  transition: all 0.2s ease;
+  filter: brightness(200%);
+}
 
 .full-screen-container {
   height: 100vh;
@@ -245,4 +261,13 @@ position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.mensagem_erro {
+  bottom: 150px;
+  color: rgb(231, 31, 31);
+  text-align: center;
+  font-size: 22px;
+  margin-bottom: 10px;
+  display:block;
 }

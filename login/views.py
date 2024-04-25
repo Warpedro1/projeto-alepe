@@ -29,8 +29,8 @@ def login(request):
                 else:
                     request.session.set_expiry(0)  # desloga quando fechar browser
                     return redirect('home_eventos')
-        else:
-                messages.error(request, 'Login ou Senha Incorretos.')
+            else:
+                messages.error(request, 'Usuário ou senha incorretos.')
                 return render(request, 'login/login.html', {'form': form})
 
     return render(request, 'login/login.html', {'form': form})

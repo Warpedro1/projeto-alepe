@@ -82,15 +82,8 @@ WSGI_APPLICATION = 'setup.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'mssql',
-        'NAME': 'projeto-alepe',
-        'USER': 'sa',
-        'PASSWORD': '12345678',
-        'HOST': 'localhost',
-        'PORT': '',  # Porta do SQL Server (opcional)
-        'OPTIONS': {
-            'driver': 'ODBC Driver 17 for SQL Server',
-        },
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 

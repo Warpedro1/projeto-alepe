@@ -177,3 +177,4 @@ templates/login/loginantesdeartu.html
 setup/static/styles/stylyecaecace.css
 setup/static/styles/styleacesasr.css
 .gitignore
+setup/settings.py

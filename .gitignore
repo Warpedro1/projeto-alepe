@@ -172,9 +172,3 @@ cython_debug/
 #.idea/
 
 # End of https://www.toptal.com/developers/gitignore/api/django
-templates/login/loginOld.html
-templates/login/loginantesdeartu.html
-setup/static/styles/stylyecaecace.css
-setup/static/styles/styleacesasr.css
-.gitignore
-setup/settings.py

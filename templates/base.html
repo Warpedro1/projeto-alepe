@@ -18,9 +18,19 @@
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
         body {
             margin: 0;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Arial', sans-serif;
             background-color: #f9f9f9;
         }
+
+        h3 {
+            font-family: 'Arial', sans-serif;
+        }
+
+        button {
+            background-color: #fff;
+            cursor: pointer;
+        }
+
         .navbar {
             background-color: #fff;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
@@ -117,18 +127,34 @@
         <a href="#" class="navbar-brand">Agenda Alepe</a>
         <div id="clock" class="card">00:00</div>
         <div class="navbar-menu">
+            {% if usuario.is_authenticated %}
             <a href="home_eventos" id="dashboardBtn">Dashboard</a>
-            <a href="#" id="calendarioBtn">Calendario</a>
+            {% endif %}
+
+            <a href="/" id="calendarioBtn">Calendario</a>
+
+            {% if usuario.is_authenticated %}
             <a href="/admin/" id="adminBtn">Admin</a>
+            {% endif %}
         </div>
         <div class="search-container">
             <input type="text" placeholder="Pesquisar evento...">
             <i class="fas fa-search search-icon"></i>
         </div>
         <div class="profile">
+            {% if not usuario.is_authenticated %}
+                <a href="login">Login</a>
+            {% else %}
             <img src="static/assets/icons/icone-alepe 1.png" alt="User Profile">
             <p><b> {{ usuario.username }}</b></p>
-            <a href="#">Logout</a>
+            <form action="{% url 'logout' %}" method="post">
+                {% csrf_token %}
+                
+                <button type="submit">
+                    <h3>Logout</h3>
+                </button>
+            </form>                  
+            {% endif %}
         </div>
     </div>
     
@@ -143,21 +169,36 @@
             document.getElementById('clock').innerText = hours + ':' + minutes;
             setTimeout(updateClock, 1000);
         }
-    
+
         updateClock();
-    
-        // funcao pagina atual botao
-        var currentPage = "calendario"; 
+
+        var currentPagePath = window.location.pathname; 
         var dashboardBtn = document.getElementById('dashboardBtn');
         var calendarioBtn = document.getElementById('calendarioBtn');
         var adminBtn = document.getElementById('adminBtn');
-    
-        if (currentPage === "dashboard") {
-            dashboardBtn.classList.add('active');
-        } else if (currentPage === "calendario") {
-            calendarioBtn.classList.add('active');
-        } else if (currentPage === "admin") {
-            adminBtn.classList.add('active');
+
+        console.log(currentPagePath)
+
+        var currentPage;
+
+        if (currentPagePath.includes("home_eventos")) {
+            currentPage = "dashboard";
+        } else if (currentPagePath == "/") {
+            currentPage = "calendario";
+        } else if (currentPagePath.includes("admin")) {
+            currentPage = "admin";
+        }
+
+        switch (currentPage) {
+            case "dashboard":
+                dashboardBtn.classList.add('active');
+                break;
+            case "calendario":
+                calendarioBtn.classList.add('active');
+                break;
+            case "admin":
+                adminBtn.classList.add('active');
+                break;
         }
     </script>
     {% block content %}{% endblock %}

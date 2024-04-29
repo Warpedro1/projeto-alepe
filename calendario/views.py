@@ -1,7 +1,6 @@
 from django.shortcuts import render
 from setup.src import *
 from collections import defaultdict
-from datetime import date
 
 def calendario(request):
     return render(request, 'calendario/calendario.html', {
@@ -15,7 +14,7 @@ def agrupar_eventos_mes_atual_por_dia():
     eventos_por_data = defaultdict(list)
 
     for evento in eventos:
-        data = evento.tempo.strftime('%d-%m-%Y')
+        data = evento.tempo.strftime('%d/%m/%Y')
         eventos_por_data[data].append({
             'nome': evento.nome,
             'solicitante': evento.solicitante,

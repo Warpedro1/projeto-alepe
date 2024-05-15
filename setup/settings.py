@@ -43,7 +43,6 @@ INSTALLED_APPS = [
     'login.apps.LoginConfig',
     'eventos.apps.EventosConfig',
     'calendario.apps.CalendarioConfig',
-    'admins'
 ]
 
 MIDDLEWARE = [

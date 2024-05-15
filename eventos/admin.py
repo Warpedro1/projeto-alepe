@@ -1,6 +1,7 @@
 from django.contrib import admin
-
 from .models import Evento
+
+admin.site.site_header = "Administração do Suporte"
 
 class ListandoEvento(admin.ModelAdmin):
     list_display = ("nome", "tempo", "descricao")

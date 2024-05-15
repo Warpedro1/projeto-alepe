@@ -4,16 +4,16 @@
 
 :root {
   --color-background: #f8f8ff;
-  --color-danger: #312DDC;
+  --color-danger: #061d54;
   --color-input-box: rgba(125, 106, 92, 0.07999999821186066);
   --color-inputplaceholder: #7d6a5c7a;
-  --color-dangerold: rgba(48, 45, 220, 1);
+  --color-dangerold: #061d54;
 }
 
 * {
   padding: 0;
   box-sizing: border-box;
-  font-family: League Spartan;
+  font-family: 'Roboto', sans-serif;
   font-size: 35px;
 }
 
@@ -37,7 +37,7 @@ body {
   opacity: 1;
   position: absolute;
   margin: 50%;
-  border-radius: 1.5rem;
+  border-radius: 0.1rem;
   box-shadow: 0px 20px 74px rgba(0, 0, 0, 0.25);
   /*overflow: hidden;*/
 }

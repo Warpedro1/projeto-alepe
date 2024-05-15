@@ -2,10 +2,10 @@
 @import url("https://fonts.googleapis.com/css?family=League+Spartan&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Jua&display=swap");
 
-:root {
+:root{
   --color-background: #f8f8ff;
   --color-danger: #061d54;
-  --color-input-box: rgba(125, 106, 92, 0.07999999821186066);
+  --color-input-box: rgba(125,106,92,0.07999999821186066);
   --color-inputplaceholder: #7d6a5c7a;
   --color-dangerold: #061d54;
 }
@@ -20,7 +20,7 @@
 body {
   margin: 0;
   overflow: hidden;
-  display: flex;
+  display:flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
@@ -42,8 +42,8 @@ body {
   /*overflow: hidden;*/
 }
 
-.wrapper .logo img {
-  position: relative;
+.wrapper .logo img{
+position: relative;
   justify-content: center;
   align-items: center;
   margin-left: 125px;
@@ -54,7 +54,7 @@ body {
   text-align: left;
   font-size: 22px;
   margin-bottom: 10px;
-  display: block;
+  display:block;
 }
 
 .wrapper .input-box {
@@ -67,7 +67,7 @@ body {
   transform: translateY(50%);
 }
 
-.input-box input {
+.input-box input{
   width: 625px;
   height: 83px;
   background: var(--color-input-box);
@@ -79,15 +79,16 @@ body {
   color: #000000
 }
 
-.input-box input::placeholder {
+.input-box input::placeholder{
   color: var(--color-inputplaceholder);
 }
 
-.input-box img {
-  position: absolute;
+.input-box img{
+  position:absolute;
   left: 570px;
   transform: translateY(100%);
   width: 30px;
+
 }
 
 .clear-button {
@@ -103,7 +104,7 @@ body {
   height: 25px;
 }
 
-.clear-button:hover {
+.clear-button:hover{
   transition: all 0.2s ease;
   filter: brightness(200%);
 }
@@ -137,6 +138,7 @@ body {
   width: 1px;
 }
 
+/* Estilize o rótulo */
 .manter-conectado label {
   position: relative;
   padding-left: 2.2em;
@@ -149,7 +151,7 @@ body {
   vertical-align: middle;
   height: 1.5em;
   width: 1.5em;
-  background: rgba(125, 106, 92, 0.07999999821186066);
+  background: rgba(125,106,92,0.07999999821186066);
   margin-right: 0.5em;
   transition: all 0.2s ease;
   position: absolute;
@@ -158,15 +160,16 @@ body {
   transform: translate(0, -50%);
 }
 
+/* Estilize o checkmark (✓) quando o checkbox estiver marcado */
 .manter-conectado label::after {
   content: "";
   position: absolute;
   top: 50%;
   left: 0.75em;
   transform: translate(-50%, -50%);
-  width: 30px;
-  height: 30px;
-  background-image: url('assets/images/acessar/blue_check_mark_icon.png');
+  width: 30px; /* Largura da imagem */
+  height: 30px; /* Altura da imagem */
+  background-image: url('assets/images/acessar/blue_check_mark_icon.png'); /* URL da imagem */
   background-size: cover;
   font-size: 1em;
   color: #fff;
@@ -174,23 +177,24 @@ body {
   transition: all 0.2s ease;
 }
 
+/* Efeito de hover no quadrado do checkbox */
 .manter-conectado label:hover::before {
   filter: brightness(200%);
 }
 
-.manter-conectado input:checked+label::before {
-  background: rgba(125, 106, 92, 0.07999999821186066);
+.manter-conectado input:checked + label::before {
+  background: rgba(125,106,92,0.07999999821186066); /* Cor de destaque */
 }
 
-.manter-conectado input:checked+label::after {
+.manter-conectado input:checked + label::after {
   opacity: 1;
 }
 
-.manter-conectado input:checked+label:hover:after {
+.manter-conectado input:checked + label:hover:after {
   filter: brightness(200%);
 }
 
-.wrapper .manter-conectado {
+.wrapper .manter-conectado{
   position: relative;
   justify-content: space-between;
   margin: 60px;
@@ -199,10 +203,10 @@ body {
 
 .manter-conectado label {
   font-size: 22px;
-  cursor: pointer;
+  cursor:pointer;
 }
 
-.manter-conectado label input {
+.manter-conectado label input{
   accent-color: var(--color-danger);
 }
 
@@ -220,7 +224,7 @@ body {
   justify-content: center;
   align-items: center;
   font-size: 28px;
-  cursor: pointer;
+  cursor:pointer;
   transition: all 0.3s ease;
   border: 2px groove var(--color-danger);
 }
@@ -230,7 +234,7 @@ body {
   color: var(--color-danger)
 }
 
-.arrow-button {
+.arrow-button{
   position: absolute;
   top: 29px;
   left: 0.75em;
@@ -265,5 +269,5 @@ body {
   text-align: center;
   font-size: 22px;
   margin-bottom: 10px;
-  display: block;
+  display:block;
 }

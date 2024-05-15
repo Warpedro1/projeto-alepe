@@ -4,51 +4,6 @@
 <body>
 
     <div class="container">
-        <!-- sidebar section -->
-        <aside>
-            <div class="toggle">
-                <div class="logo">
-                    <img src="{% static 'assets/icons/icone-alepe.png' %}">
-                    <h2><span class="danger"> Alepe Suporte</span></h2>
-                </div>
-                
-            </div>
-
-            <div class="sidebar">
-                <a href="/admin/">
-                    <span class="material-icons-sharp">
-                        settings
-                    </span>
-                    <h3>Configurações</h3>
-                </a>
-                <a href="#" class="active">
-                    <span class="material-icons-sharp">
-                        calendar_today
-                    </span>
-                    <h3>Dashboard</h3>
-                </a>
-                <a href="/">
-                    <span class="material-icons-sharp">
-                        calendar_view_week
-                    </span>
-                    <h3>Calendário</h3>
-                    <span class="message-count">{{ eventos.status.mensal.total }}</span>
-                </a>           
-                <form action="{% url 'logout' %}" method="post">
-                    {% csrf_token %}
-                    <button type="submit">
-                        <a>
-                            <span class="material-icons-sharp">
-                                logout
-                            </span>
-                            <h3>Log Out</h3>
-                        </a>
-                    </button>
-                </form>                          
-            </div>
-        </aside>
-        <!-- fim sidebar section -->
-
         <!-- main content -->
         <main>
             <!--colocar as tags aq-->
@@ -81,8 +36,10 @@
                 </li>
             </ul>
              <!--dia da semana-->
-            <h1> {{ datas.hoje.dia.string }}, {{ datas.hoje.formatada.string }} </h1>
-            <!--cards event-->
+            <div class="data">
+                <h1> {{ datas.hoje.dia.string }}, {{ datas.hoje.formatada.string }} </h1>
+            </div>
+             <!--cards event-->
             <ul class="eventos">
                 {% for evento in eventos.hoje %}
                 {% if evento.status == "AGENDADO" %}
@@ -111,25 +68,6 @@
 
         <!-- Right Section -->
         <div class="right-section">
-            <div class="nav">
-                <button id="menu-btn">
-                    <span class="material-icons-sharp">
-                        menu
-                    </span>
-                </button>
-                <div class="profile">
-                    <div class="info">
-                        <p><b> {{ usuario.username }}</b></p>
-                        <small class="text-muted">Suporte</small>
-                    </div>
-                    <div class="profile-photo">
-                        <img src="{% static 'assets/images/home-eventos/profile-sti.png' %}">
-                    </div>
-                </div>
-
-            </div>
-            <!-- End of Nav -->
-
             <div class="reminders">
                 <div class="header">
                     <h2>Amanhã • {{ datas.amanha.formatada.DM }}</h2>
@@ -169,21 +107,16 @@
                     </div>
                 </div>
                 {% endfor %}
-
                 <a href="/admin/eventos/evento/add/">
                 <div class="notification add-reminder">
-                        <span class="material-icons-sharp">
-                            add
-                        </span>
-                        <h3>Adicionar Evento</h3>
-                    </div>
+                    <span class="material-icons-sharp">
+                        add
+                    </span>
+                    <h3>Adicionar Evento</h3>
+                </div>
                 </a>
-
             </div>
-
         </div>
-
-
     </div>
     <script src="static/js/index.js"></script>
 </body>

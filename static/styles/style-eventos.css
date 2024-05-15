@@ -12,15 +12,15 @@
     --color-dark-variant: #677483;
     --color-background: #f6f6f9;
     --light: #f6f6f9;
-    --light-blue: #CFE8FF;
+    --light-blue: #CFE8FF; /*pogresso*/
     --grey: #eee;
     --dark-grey: #AAAAAA;
     --dark: #363949;
 	--light-danger: #FECDD3;
     --progresso: #FBC02D;
-    --light-progresso: #E2E0FF;
-    --concluido: #388E3C;
-    --light-concluido: #BBF7D0;
+    --light-progresso: #E2E0FF; /*agendado*/
+    --concluido: #388E3C; 
+    --light-concluido: #BBF7D0; /*concruido*/
 
     --card-border-radius: 1rem;
     --border-radius-1: 0.5rem;
@@ -43,6 +43,7 @@
 
 *{
     margin: 0;
+    
     padding: 0;
     outline: 0;
     appearance: 0;
@@ -58,9 +59,9 @@ html{
 body{
     width: 100vw;
     height: 100vh;
-    margin-top: 1rem;
-    font-family: 'Poppins', sans-serif;
-    font-size: 0.88rem;
+    margin-top: 2rem;
+    font-family: 'Arial', sans-serif;
+    font-size: 12px;
     user-select: none;
     overflow-x: hidden;
     color: var(--color-dark);
@@ -68,6 +69,7 @@ body{
 }
 
 a{
+    cursor: pointer;
     color: var(--color-dark);
 }
 
@@ -129,10 +131,12 @@ b{
     width: 96%;
     margin: 0 auto;
     gap: 1.8rem;
-    grid-template-columns: 12rem auto 23rem;
+    grid-template-columns: auto 20rem;
+    margin-top: 20px;
 }
 
 aside{
+    width: 190px;
     height: 100vh;
 }
 
@@ -151,7 +155,6 @@ aside .toggle .logo{
 aside .toggle .logo img{
     width: 5rem;
     height: 5rem;
-    border-radius: 5rem;
 }
 
 aside .toggle .close{
@@ -160,8 +163,10 @@ aside .toggle .close{
 }
 
 aside .sidebar{
+    
     display: flex;
     flex-direction: column;
+    
     background-color: var(--color-white);
     box-shadow: var(--box-shadow);
     border-radius: 5px;
@@ -179,7 +184,7 @@ aside .sidebar a{
     display: flex;
     align-items: center;
     color: var(--color-danger);
-    height: 4.5rem;
+    height: 3.7rem;
     gap: 1rem;
     position: relative;
     margin-left: 2rem;
@@ -233,9 +238,8 @@ aside .sidebar .message-count{
 }
 
 main{
-    margin-top: 4rem;
     width: 100%;
-    padding: 36px 24px;
+    padding-right: 20px;
     max-height: calc(100vh - 56px);
 }
 li{
@@ -253,14 +257,13 @@ main .eventos li{
     padding: 24px;
     border-radius: var(--card-border-radius);
     display: flex;
-    margin-top: 1.4rem;
+    margin-top: 1rem;
     box-shadow: var(--box-shadow);
     align-items: center;
     grid-gap: 24px;
-    cursor: pointer;
 }
 #agendados{
-    background-color: #7d8da1;
+    background-color: var(--light-progresso);
     /*background-color: var(--light-blue);*/
 }
 #progresso{
@@ -297,15 +300,16 @@ main .filtros{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 24px;
+    margin-bottom: 10px;
 
 }
 
 main .filtros li{
-    padding: 24px;
+    padding: 10px;
     background: var(--color-white);
     border-radius: var(--card-border-radius);
     display: flex;
-    margin-top: 1.4rem;
+    margin-top: 4px;
     box-shadow: var(--box-shadow);
     align-items: center;
     grid-gap: 24px;
@@ -313,21 +317,21 @@ main .filtros li{
 }
 
 main .filtros li .bx{
-    width: 80px;
-    height: 80px;
-    border-radius: var(--card-border-radius);
+    width: 60px;
+    height: 60px;
+    border-radius: var(--border-radius-1);
     font-size: 36px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 main .filtros li:nth-child(1) .bx{
-    background: var(--light-blue);
+    background: var(--light-progresso);
     color: var(--color-dark);
 }
 
 main .filtros li:nth-child(2) .bx{
-    background: var(--light-progresso);
+    background: var(--light-blue);
     color: var(--color-dark);
 }
 
@@ -427,7 +431,7 @@ main .recent-orders a{
 }
 
 .right-section{
-    margin-top: 1.4rem;
+    margin-top: 0rem;
 }
 
 .right-section .nav{
@@ -437,6 +441,7 @@ main .recent-orders a{
 }
 
 .right-section .nav button{
+    font-family: 'Poppins', sans-serif;
     display: none;
 }
 
@@ -508,7 +513,7 @@ main .recent-orders a{
 }
 
 .right-section .reminders{
-    margin-top: 2rem;
+    margin-top: 0rem;
 }
 
 .right-section .reminders .header{
@@ -550,16 +555,25 @@ main .recent-orders a{
     width: 100%;
 }
 
-.right-section .reminders .notification .icon{
+.right-section .reminders .notification .status.agendados,
+.right-section .reminders .notification .status.em.progresso,
+.right-section .reminders .notification .status.concluidos {
     padding: 0.6rem;
-    color: var(--color-white);
     background-color: var(--color-concluido);
     border-radius: 20%;
     display: flex;
 }
 
-.right-section .reminders .notification.deactive .icon{
-    background-color: var(--color-danger);
+.right-section .reminders .notification.deactive .status.agendados {
+    background-color: var(--light-progresso);
+}
+
+.right-section .reminders .notification.deactive .status.em.progresso {
+    background-color: var(--light-blue);
+}
+
+.right-section .reminders .notification.deactive .status.concluidos {
+    background-color: var(--light-concluido);
 }
 
 .right-section .reminders .add-reminder{
@@ -581,6 +595,10 @@ main .recent-orders a{
     display: flex;
     align-items: center;
     gap: 0.6rem;
+}
+
+.data {
+    margin-top: 17.3px;
 }
 
 @media screen and (max-width: 1200px) {

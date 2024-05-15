@@ -61,7 +61,7 @@ body{
     height: 100vh;
     margin-top: 2rem;
     font-family: 'Arial', sans-serif;
-    font-size: 0.88rem;
+    font-size: 12px;
     user-select: none;
     overflow-x: hidden;
     color: var(--color-dark);
@@ -131,7 +131,8 @@ b{
     width: 96%;
     margin: 0 auto;
     gap: 1.8rem;
-    grid-template-columns: 12rem auto 23rem;
+    grid-template-columns: auto 20rem;
+    margin-top: 20px;
 }
 
 aside{
@@ -237,9 +238,8 @@ aside .sidebar .message-count{
 }
 
 main{
-    margin-top: 4px;
     width: 100%;
-    padding: 2px 20px;
+    padding-right: 20px;
     max-height: calc(100vh - 56px);
 }
 li{
@@ -261,7 +261,6 @@ main .eventos li{
     box-shadow: var(--box-shadow);
     align-items: center;
     grid-gap: 24px;
-    cursor: pointer;
 }
 #agendados{
     background-color: var(--light-progresso);
@@ -432,7 +431,7 @@ main .recent-orders a{
 }
 
 .right-section{
-    margin-top: 1.4rem;
+    margin-top: 0rem;
 }
 
 .right-section .nav{
@@ -514,7 +513,7 @@ main .recent-orders a{
 }
 
 .right-section .reminders{
-    margin-top: 2rem;
+    margin-top: 0rem;
 }
 
 .right-section .reminders .header{
@@ -596,6 +595,10 @@ main .recent-orders a{
     display: flex;
     align-items: center;
     gap: 0.6rem;
+}
+
+.data {
+    margin-top: 17.3px;
 }
 
 @media screen and (max-width: 1200px) {

@@ -31,6 +31,6 @@ def login(request):
                     return redirect('home_eventos')
             else:
                 messages.error(request, 'Usuário ou senha incorretos.')
-                return render(request, 'login/login.html', {'form': form})
+                return render(request, 'pages/login.html', {'form': form})
 
-    return render(request, 'login/login.html', {'form': form})
+    return render(request, 'pages/login.html', {'form': form})

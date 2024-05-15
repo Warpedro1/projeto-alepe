@@ -1,0 +1,95 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alepe Agenda</title>
+    <link rel="icon" href="{% static 'assets/images/acessar/favicon.ico' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'styles/style-login.css' %}?{% now "U" %}">
+    <script src="{%static 'js/acessar.js' %}"></script>
+    <script>
+        function changeImage(){
+            var input = document.getElementById("password");
+            var button = document.getElementById("eyeButton");
+            if (input.type == "password"){
+                input.type = "text";
+                button.style.backgroundImage = "url('{% static 'assets/images/acessar/blue_circular_icon.png' %}')";
+              } else if (input.type == "text") {
+                input.type = "password";
+                button.style.backgroundImage = "url('{% static 'assets/images/acessar/blue_diagonal_line_icon.png' %}') , url('{% static 'assets/images/acessar/blue_circular_icon.png' %}')";
+              }
+        }
+
+        function changeTypePasswordOnSubmit() {
+            var input = document.getElementById("password");
+            var button = document.getElementById("eyeButton");
+            if (input.type == "text") {
+              input.type = "password";
+              button.style.backgroundImage = "url('{% static 'assets/images/acessar/blue_diagonal_line_icon.png' %}') , url('{% static 'assets/images/acessar/blue_circular_icon.png' %}')";
+            }
+        }
+
+        function limparCampo() {
+            document.getElementById("username").value = "";
+          }
+    </script>
+</head>
+
+<body>
+    <style>
+        body {
+            background-image: url("{% static 'assets/images/acessar/historic_building_reflection_waterfront.png' %}");
+        }
+        .arrow-button {
+            background-image: url("{% static 'assets/images/acessar/blue_arrow_icon.png' %}");
+        }
+        .clear-button {
+            background-image: url("{% static 'assets/images/acessar/blue_cross_icon.png' %}");
+        }
+        .eye-button {
+            background-image: url("{% static 'assets/images/acessar/blue_diagonal_line_icon.png' %}") , url("{% static 'assets/images/acessar/blue_circular_icon.png' %}");
+        }
+        .manter-conectado label::after {
+            background-image: url("{% static 'assets/images/acessar/blue_check_mark_icon.png' %}");
+        }
+        .full-screen-container {
+            background-image: url("{% static 'assets/images/acessar/historic_building_reflection_waterfront.png' %}");
+        }
+        </style>
+    <div class="wrapper">
+        <span class="arrow-button" id="arrowButton" onclick="window.location='/'"></span>
+        <form class="login-form" method="POST">
+            <form action="{% url 'home_eventos' %}" method="POST">
+                {% csrf_token %}
+                <div class="logo">
+                    <img src="{% static 'assets/images/acessar/alepe_logo.png' %}" alt="ALEPE"></img>
+                </div>
+                <div class="input-box">
+                    <span class="textin">Nome de usuário</span>
+                    <input type="text" id="username" name="nome_login"
+                    placeholder="usuario@alepe.pe.gov.br" required>
+                    <span class="clear-button" onclick="limparCampo()"></span>
+                </div>
+                <div class="input-box">
+                    <span class="textin">Senha</span>
+                    <input type="password" id="password" name="senha" required>
+                    <span class="eye-button" id="eyeButton" onclick="changeImage()"></span>
+                </div>
+                <!-- {% for message in messages %}
+                <div class="mensagem_erro">
+                  <span class="mensagem_erro">{{message}}</span>
+                </div>
+                {% endfor %}-->
+                <div class="manter-conectado">
+                    <input type="checkbox" id="chk1" class="checkbox" name="manter-conectado">
+                    <label for="chk1">Manter conectado</label>
+                </div>
+                <button type="submit" class="btn" onclick="changeTypePasswordOnSubmit()">
+                    ACESSAR AGENDA
+                </button>
+            </form>
+        </form>
+    </div>
+</body>
+</html>

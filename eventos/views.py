@@ -5,7 +5,7 @@ from setup.src import *
 
 @login_required(login_url='/login')
 def home_eventos(request):
-    return render(request, 'eventos/home_eventos.html', {
+    return render(request, 'pages/home_eventos.html', {
         'usuario' : get_user(request),
         'eventos': eventos(),
         'datas': datas()

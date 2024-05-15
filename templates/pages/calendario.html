@@ -1,0 +1,22 @@
+{% extends '../components/base.html' %}
+{% load static %}
+{% block content %}
+<body>
+    <h1>{{ mes_atual }}</h1>
+    {% for data, eventos in eventos_mes.items %}
+        <h2>dia: {{ data }}</h2>
+        <ul>
+            {% for evento in eventos %}
+                <li>
+                    <strong>Nome do evento:</strong> {{ evento.nome }}<br>
+                    <strong>Solicitante:</strong> {{ evento.solicitante }}<br>
+                    <strong>Tempo:</strong> {{ evento.tempo }}<br>
+                    <strong>Lugar:</strong> {{ evento.lugar }}<br>
+                    <strong>Descrição:</strong> {{ evento.descricao }}<br>
+                    <strong>Status:</strong> {{ evento.status }}<br>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endfor %}
+
+{% endblock %}

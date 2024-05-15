@@ -69,14 +69,17 @@
                     <span class="textin">Nome de usuário</span>
                     <input type="text" id="username" name="nome_login"
                     placeholder="usuario@alepe.pe.gov.br" required>
+                    <!--Incluir [type="email"] se quiser garantir que tenha @ no login-->
                     <span class="clear-button" onclick="limparCampo()"></span>
                 </div>
                 <div class="input-box">
                     <span class="textin">Senha</span>
                     <input type="password" id="password" name="senha" required>
+                    <!--Incluir [placeholder="**********"] se quiser que apareça um exemplo de senha no input-box-->
                     <span class="eye-button" id="eyeButton" onclick="changeImage()"></span>
                 </div>
-                <!-- {% for message in messages %}
+                <!--Para mensagem de erro:
+                {% for message in messages %}
                 <div class="mensagem_erro">
                   <span class="mensagem_erro">{{message}}</span>
                 </div>

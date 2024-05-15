@@ -151,6 +151,7 @@ aside .toggle .logo{
 aside .toggle .logo img{
     width: 5rem;
     height: 5rem;
+    border-radius: 5rem;
 }
 
 aside .toggle .close{

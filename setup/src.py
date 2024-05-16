@@ -44,7 +44,7 @@ def datas():
         'hoje': {
             'formatada': {
                 'DM': get_hoje().strftime("%d/%m"), # 31/12
-                'DMA':  get_hoje().strftime("%d/%m/%Y"), # 31/12/2023
+                'DMA':  get_hoje().strftime("%d/%m/%y"), # 31/12/23
                 'string': get_hoje() # 31 de Dezembro de 2023
             },
             'dia': {
@@ -60,7 +60,7 @@ def datas():
         'amanha': {
             'formatada': {
                 'DM': get_amanha().strftime("%d/%m"), # 01/01
-                'DMA':  get_amanha().strftime("%d/%m/Y"), # 01/01/2024
+                'DMA':  get_amanha().strftime("%d/%m/%y"), # 01/01/24
                 'string': get_amanha() # 1 de Janeiro de 2024
             },
             'dia': {

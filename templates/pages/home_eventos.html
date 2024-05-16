@@ -8,6 +8,9 @@
         <main>
             <!--colocar as tags aq-->
             <!-- filtros -->
+            <div class="data">
+                <h1> {{ datas.hoje.dia.string }}, {{ datas.hoje.formatada.string }} </h1>
+            </div>
             <ul class="filtros">
                 <li>
                     <i class='bx bx-box'></i>
@@ -36,9 +39,7 @@
                 </li>
             </ul>
              <!--dia da semana-->
-            <div class="data">
-                <h1> {{ datas.hoje.dia.string }}, {{ datas.hoje.formatada.string }} </h1>
-            </div>
+            
              <!--cards event-->
             <ul class="eventos">
                 {% for evento in eventos.hoje %}
@@ -70,7 +71,7 @@
         <div class="right-section">
             <div class="reminders">
                 <div class="header">
-                    <h2>Amanhã • {{ datas.amanha.formatada.DM }}</h2>
+                    <h2>Amanhã • {{ datas.amanha.formatada.DMA }}</h2>
                     <span class="material-icons-sharp">
                         notifications_none
                     </span>

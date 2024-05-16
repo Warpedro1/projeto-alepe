@@ -39,6 +39,7 @@
             justify-content: space-between;
             align-items: center
         }
+
         .navbar-brand {
             color: #061d54;
             text-decoration: none;
@@ -46,6 +47,7 @@
             font-weight: bold;
         }
         .navbar-menu {
+            padding-left:335px;
             display: flex;
             gap: 20px;
         }
@@ -113,7 +115,8 @@
             background-color: #ddd;
         }
         .card {
-            color: #000;
+            background-color: #061d54;
+            color: #fff;
             padding: 9px 20px;
             border: 1px groove #061d54;
             border-radius: 5px;
@@ -122,8 +125,8 @@
     </style>
     </head>
     <body>
-    
     <div class="navbar">
+        <a href="#" class="navbar-brand">Agenda Alepe</a>
         <div id="clock" class="card">00:00</div>
         <div class="navbar-menu">
             {% if usuario.is_authenticated %}
@@ -135,6 +138,10 @@
             {% if usuario.is_authenticated %}
             <a href="/admin/" id="adminBtn">Administração</a>
             {% endif %}
+        </div>
+        <div class="search-container">
+            <input type="text" placeholder="Pesquisar evento...">
+            <i class="fas fa-search search-icon"></i>
         </div>
         <div class="profile">
             {% if not usuario.is_authenticated %}

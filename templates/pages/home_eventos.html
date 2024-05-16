@@ -1,13 +1,166 @@
 {% extends '../components/base.html' %}
 {% load static %}
 {% block content %}
+<link rel="stylesheet" href="{% static 'styles/style-eventos.css' %}?{% now "U" %}">
 <body>
-
     <div class="container">
-        <!-- main content -->
+      <main class="main">
+        <div class="calendar">
+          <div class="date-section">
+            <div class="date-header">
+              <span class="date-label">Segunda, 11 de Fevereiro</span>
+              <button class="filter">Filtro</button>
+            </div>
+            <div class="status-events">
+              <!-- Agendados -->
+              <div class="status-section agendados">
+                <div class="card">
+                  <span class="status">Agendados</span>
+                  <div class="appointment">
+                    <div class="title">Palestra Plenario</div>
+                    <div class="time-slot">12:30 PM - 04:36 PM</div>
+                    <div class="location">Plenario</div>
+                    <div class="info">Informacoes</div>
+                    <button class="action">Concluir</button>
+                  </div>
+                  <div class="appointment">
+                    <div class="title">Reunião de Equipe</div>
+                    <div class="time-slot">05:00 PM - 06:00 PM</div>
+                    <div class="location">Sala de Reuniões</div>
+                    <div class="info">Informacoes</div>
+                    <button class="action">Concluir</button>
+                  </div>
+                </div>
+              </div>
+              <!-- Em Progresso -->
+              <div class="status-section em-progresso">
+                <div class="card">
+                  <span class="status">Em Progresso</span>
+                  <div class="appointment">
+                    <div class="title">Palestra Plenario</div>
+                    <div class="time-slot">12:30 PM - 04:36 PM</div>
+                    <div class="location">Plenario</div>
+                    <div class="info">Informacoes</div>
+                    <button class="action">Iniciar</button>
+                  </div>
+                  <div class="appointment">
+                    <div class="title">Reunião de Equipe</div>
+                    <div class="time-slot">05:00 PM - 06:00 PM</div>
+                    <div class="location">Sala de Reuniões</div>
+                    <div class="info">Informacoes</div>
+                    <button class="action">Iniciar</button>
+                  </div>
+                </div>
+              </div>
+              <!-- Concluídos -->
+              <div class="status-section concluidos">
+                <div class="card">
+                  <span class="status">Concluídos</span>
+                  <div class="appointment">
+                    <div class="title">Palestra Plenario</div>
+                    <div class="time-slot">12:30 PM - 04:36 PM</div>
+                    <div class="location">Plenario</div>
+                    <div class="info">Informacoes</div>
+                    <button class="action">Arquivar</button>
+                  </div>
+                  <div class="appointment">
+                    <div class="title">Reunião de Equipe</div>
+                    <div class="time-slot">05:00 PM - 06:00 PM</div>
+                    <div class="location">Sala de Reuniões</div>
+                    <div class="info">Informacoes</div>
+                    <button class="action">Arquivar</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+      </main>
+    </div>
+          <div class="container">
+      <main class="main">
+        <div class="calendar">
+          <div class="date-section">
+            <div class="date-header">
+              <span class="date-label">Segunda, 11 de Fevereiro</span>
+              <button class="filter">Filtro</button>
+            </div>
+            <div class="status-events">
+              <!-- Agendados -->
+              <div class="status-section agendados">
+                <div class="card">
+                  <span class="status">Agendados</span>
+                  <div class="appointment">
+                    <div class="title">Palestra Plenario</div>
+                    <div class="time-slot">12:30 PM - 04:36 PM</div>
+                    <div class="location">Plenario</div>
+                    <div class="info">Informacoes</div>
+                    <button class="action">Concluir</button>
+                  </div>
+                  <div class="appointment">
+                    <div class="title">Reunião de Equipe</div>
+                    <div class="time-slot">05:00 PM - 06:00 PM</div>
+                    <div class="location">Sala de Reuniões</div>
+                    <div class="info">Informacoes</div>
+                    <button class="action">Concluir</button>
+                  </div>
+                </div>
+              </div>
+              <!-- Em Progresso -->
+              <div class="status-section em-progresso">
+                <div class="card">
+                  <span class="status">Em Progresso</span>
+                  <div class="appointment">
+                    <div class="title">Palestra Plenario</div>
+                    <div class="time-slot">12:30 PM - 04:36 PM</div>
+                    <div class="location">Plenario</div>
+                    <div class="info">Informacoes</div>
+                    <button class="action">Iniciar</button>
+                  </div>
+                  <div class="appointment">
+                    <div class="title">Reunião de Equipe</div>
+                    <div class="time-slot">05:00 PM - 06:00 PM</div>
+                    <div class="location">Sala de Reuniões</div>
+                    <div class="info">Informacoes</div>
+                    <button class="action">Iniciar</button>
+                  </div>
+                </div>
+              </div>
+              <!-- Concluídos -->
+              <div class="status-section concluidos">
+                <div class="card">
+                  <span class="status">Concluídos</span>
+                  <div class="appointment">
+                    <div class="title">Palestra Plenario</div>
+                    <div class="time-slot">12:30 PM - 04:36 PM</div>
+                    <div class="location">Plenario</div>
+                    <div class="info">Informacoes</div>
+                    <button class="action">Arquivar</button>
+                  </div>
+                  <div class="appointment">
+                    <div class="title">Reunião de Equipe</div>
+                    <div class="time-slot">05:00 PM - 06:00 PM</div>
+                    <div class="location">Sala de Reuniões</div>
+                    <div class="info">Informacoes</div>
+                    <button class="action">Arquivar</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Your HTML code for the second day -->
+      </main>
+  </body>
+  </html>
+{% endblock %}
+
+<!--<body>
+    <div class="container">
+        
         <main>
-            <!--colocar as tags aq-->
-            <!-- filtros -->
+            
             <div class="data">
                 <h1> {{ datas.hoje.dia.string }}, {{ datas.hoje.formatada.string }} </h1>
             </div>
@@ -29,6 +182,7 @@
                         <p>Progresso</p>
                     </span>
                 </li>
+                
                 <li><i class='bx bx-check-double'></i>
                     <span class="info">
                         <h3>
@@ -38,9 +192,7 @@
                     </span>
                 </li>
             </ul>
-             <!--dia da semana-->
             
-             <!--cards event-->
             <ul class="eventos">
                 {% for evento in eventos.hoje %}
                 {% if evento.status == "AGENDADO" %}
@@ -65,9 +217,7 @@
                 {% endfor %}
             </ul>
         </main>
-        <!-- End of Main Content -->
-
-        <!-- Right Section -->
+       
         <div class="right-section">
             <div class="reminders">
                 <div class="header">
@@ -80,9 +230,9 @@
 
                 {% for evento in eventos.amanha %}
                 <div class="notification deactive">
-                        <!--<span class="material-icons-sharp">
+                       <span class="material-icons-sharp">
                             event
-                        </span>-->
+                        </span>
                     {% if evento.status == "AGENDADO" %}
                     <div class="status agendados">
                         <i class='bx bx-box'>
@@ -120,7 +270,5 @@
         </div>
     </div>
     <script src="static/js/index.js"></script>
-</body>
+</body>-->
 
-</html>
-{% endblock %}

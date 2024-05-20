@@ -2,25 +2,25 @@
 @import url("https://fonts.googleapis.com/css?family=League+Spartan&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Jua&display=swap");
 
-:root{
+:root {
   --color-background: #f8f8ff;
   --color-danger: #061d54;
-  --color-input-box: rgba(125,106,92,0.07999999821186066);
+  --color-input-box: rgba(125, 106, 92, 0.07999999821186066);
   --color-inputplaceholder: #7d6a5c7a;
-  --color-dangerold: #061d54;
+  --color-dangerold: #312DDC;
 }
 
 * {
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'League Spartan', sans-serif;
   font-size: 35px;
 }
 
 body {
   margin: 0;
   overflow: hidden;
-  display:flex;
+  display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
@@ -37,13 +37,13 @@ body {
   opacity: 1;
   position: absolute;
   margin: 50%;
-  border-radius: 0.1rem;
+  border-radius: 0.2rem;
   box-shadow: 0px 20px 74px rgba(0, 0, 0, 0.25);
   /*overflow: hidden;*/
 }
 
-.wrapper .logo img{
-position: relative;
+.wrapper .logo img {
+  position: relative;
   justify-content: center;
   align-items: center;
   margin-left: 125px;
@@ -54,7 +54,7 @@ position: relative;
   text-align: left;
   font-size: 22px;
   margin-bottom: 10px;
-  display:block;
+  display: block;
 }
 
 .wrapper .input-box {
@@ -63,15 +63,15 @@ position: relative;
   height: 50%;
   margin: 60px;
   margin-top: -30px;
-  border-radius: 0.5rem;
+  border-radius: 0.2rem;
   transform: translateY(50%);
 }
 
-.input-box input{
+.input-box input {
   width: 625px;
   height: 83px;
   background: var(--color-input-box);
-  border-radius: 0.5rem;
+  border-radius: 0.2rem;
   border: transparent;
   font-size: 22px;
   padding: 20px 45px 20px 20px;
@@ -79,12 +79,12 @@ position: relative;
   color: #000000
 }
 
-.input-box input::placeholder{
+.input-box input::placeholder {
   color: var(--color-inputplaceholder);
 }
 
-.input-box img{
-  position:absolute;
+.input-box img {
+  position: absolute;
   left: 570px;
   transform: translateY(100%);
   width: 30px;
@@ -104,9 +104,9 @@ position: relative;
   height: 25px;
 }
 
-.clear-button:hover{
+.clear-button:hover {
   transition: all 0.2s ease;
-  filter: brightness(200%);
+  filter: brightness(230%) saturate(72%);
 }
 
 .eye-button {
@@ -124,25 +124,21 @@ position: relative;
 
 .eye-button:hover {
   transition: all 0.2s ease;
-  filter: brightness(200%);
+  filter: brightness(230%) saturate(72%);
 }
 
 .manter-conectado input[type="checkbox"] {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
+  width: 0px;
+  height: 0px;
   overflow: hidden;
-  padding: 0;
   position: absolute;
-  width: 1px;
 }
 
-/* Estilize o rótulo */
 .manter-conectado label {
   position: relative;
   padding-left: 2.2em;
-  padding-top: 0.21em;
+  padding-top: 0.2em;
+  top: 0.1em;
 }
 
 .manter-conectado label::before {
@@ -151,50 +147,52 @@ position: relative;
   vertical-align: middle;
   height: 1.5em;
   width: 1.5em;
-  background: rgba(125,106,92,0.07999999821186066);
+  background: rgba(125, 106, 92, 0.07999999821186066);
   margin-right: 0.5em;
   transition: all 0.2s ease;
   position: absolute;
   top: 50%;
   left: 0;
+  bottom: 0em;
   transform: translate(0, -50%);
+  border-radius: 0.1rem;
 }
 
-/* Estilize o checkmark (✓) quando o checkbox estiver marcado */
 .manter-conectado label::after {
   content: "";
   position: absolute;
   top: 50%;
   left: 0.75em;
   transform: translate(-50%, -50%);
-  width: 30px; /* Largura da imagem */
-  height: 30px; /* Altura da imagem */
-  background-image: url('assets/images/acessar/blue_check_mark_icon.png'); /* URL da imagem */
+  width: 30px;
+  /* Largura da imagem */
+  height: 30px;
+  /* Altura da imagem */
+  background-image: url('assets/images/acessar/blue_check_mark_icon.png');
+  /* URL da imagem */
   background-size: cover;
-  font-size: 1em;
-  color: #fff;
   opacity: 0;
   transition: all 0.2s ease;
 }
 
-/* Efeito de hover no quadrado do checkbox */
 .manter-conectado label:hover::before {
   filter: brightness(200%);
 }
 
-.manter-conectado input:checked + label::before {
-  background: rgba(125,106,92,0.07999999821186066); /* Cor de destaque */
+.manter-conectado input:checked+label::before {
+  background: rgba(125, 106, 92, 0.07999999821186066);
+  /* Cor de destaque */
 }
 
-.manter-conectado input:checked + label::after {
+.manter-conectado input:checked+label::after {
   opacity: 1;
 }
 
-.manter-conectado input:checked + label:hover:after {
-  filter: brightness(200%);
+.manter-conectado input:checked+label:hover:after {
+  filter: brightness(230%) saturate(72%);
 }
 
-.wrapper .manter-conectado{
+.wrapper .manter-conectado {
   position: relative;
   justify-content: space-between;
   margin: 60px;
@@ -203,10 +201,10 @@ position: relative;
 
 .manter-conectado label {
   font-size: 22px;
-  cursor:pointer;
+  cursor: pointer;
 }
 
-.manter-conectado label input{
+.manter-conectado label input {
   accent-color: var(--color-danger);
 }
 
@@ -215,7 +213,7 @@ position: relative;
   height: 10%;
   background: var(--color-danger);
   outline: none;
-  border-radius: 0.5rem;
+  border-radius: 0.2rem;
   color: #fff;
   font-weight: bold;
   bottom: 30px;
@@ -224,7 +222,7 @@ position: relative;
   justify-content: center;
   align-items: center;
   font-size: 28px;
-  cursor:pointer;
+  cursor: pointer;
   transition: all 0.3s ease;
   border: 2px groove var(--color-danger);
 }
@@ -234,7 +232,7 @@ position: relative;
   color: var(--color-danger)
 }
 
-.arrow-button{
+.arrow-button {
   position: absolute;
   top: 29px;
   left: 0.75em;
@@ -250,7 +248,7 @@ position: relative;
 
 .arrow-button:hover {
   transition: all 0.2s ease;
-  filter: brightness(200%);
+  filter: brightness(230%) saturate(72%);
 }
 
 .full-screen-container {
@@ -269,5 +267,5 @@ position: relative;
   text-align: center;
   font-size: 22px;
   margin-bottom: 10px;
-  display:block;
+  display: block;
 }

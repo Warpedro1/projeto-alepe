@@ -1,159 +1,126 @@
 {% extends '../components/base.html' %}
 {% load static %}
 {% block content %}
-<link rel="stylesheet" href="{% static 'styles/style-eventos.css' %}?{% now "U" %}">
+
 <body>
-    <div class="container">
-      <main class="main">
-        <div class="calendar">
-          <div class="date-section">
-            <div class="date-header">
-              <span class="date-label">Segunda, 11 de Fevereiro</span>
-              <button class="filter">Filtro</button>
+  <div class="indicators-container">
+    <span class="indicator" id="agendados-total"><i class='bx bx-time-five' > </i> Agendados: {{ eventos.status.hoje.agendados }}</span>
+    <span class="indicator" id="em-progresso-total"><i class='bx bx-check-double'></i> Em Progresso: {{ eventos.status.hoje.em_progresso }}</span>
+    <span class="indicator" id="concluidos-total"><i class='bx bx-box'></i> Concluídos: {{ eventos.status.hoje.em_progresso }}</span>
+  </div>
+
+  <div class="main-container">
+    <section class="day-container today">
+      <h2>{{ datas.hoje.dia.string }}, {{ datas.hoje.formatada.DM }} </h2>
+
+      <!-- Scheduled Events -->
+      <div class="events-container">
+        <div class="status-column">
+          <h2 class="status-header">Agendado</h2>
+          <div class="event agendado">
+            <span class="event-time">9:00 - 10:00</span>
+            <div class="event-info">
+              <h3 class="event-title">Nome - Solicitante</h3>
+              <dl class="event-description">
+                <dt> Local </dt>
+                <dt>Informacoes laskdjaskdahsdjhasjh </dt>
+              </dl>
             </div>
-            <div class="status-events">
-              <!-- Agendados -->
-              <div class="status-section agendados">
-                <div class="card">
-                  <span class="status">Agendados</span>
-                  <div class="appointment">
-                    <div class="title">Palestra Plenario</div>
-                    <div class="time-slot">12:30 PM - 04:36 PM</div>
-                    <div class="location">Plenario</div>
-                    <div class="info">Informacoes</div>
-                    <button class="action">Concluir</button>
-                  </div>
-                  <div class="appointment">
-                    <div class="title">Reunião de Equipe</div>
-                    <div class="time-slot">05:00 PM - 06:00 PM</div>
-                    <div class="location">Sala de Reuniões</div>
-                    <div class="info">Informacoes</div>
-                    <button class="action">Concluir</button>
-                  </div>
-                </div>
-              </div>
-              <!-- Em Progresso -->
-              <div class="status-section em-progresso">
-                <div class="card">
-                  <span class="status">Em Progresso</span>
-                  <div class="appointment">
-                    <div class="title">Palestra Plenario</div>
-                    <div class="time-slot">12:30 PM - 04:36 PM</div>
-                    <div class="location">Plenario</div>
-                    <div class="info">Informacoes</div>
-                    <button class="action">Iniciar</button>
-                  </div>
-                  <div class="appointment">
-                    <div class="title">Reunião de Equipe</div>
-                    <div class="time-slot">05:00 PM - 06:00 PM</div>
-                    <div class="location">Sala de Reuniões</div>
-                    <div class="info">Informacoes</div>
-                    <button class="action">Iniciar</button>
-                  </div>
-                </div>
-              </div>
-              <!-- Concluídos -->
-              <div class="status-section concluidos">
-                <div class="card">
-                  <span class="status">Concluídos</span>
-                  <div class="appointment">
-                    <div class="title">Palestra Plenario</div>
-                    <div class="time-slot">12:30 PM - 04:36 PM</div>
-                    <div class="location">Plenario</div>
-                    <div class="info">Informacoes</div>
-                    <button class="action">Arquivar</button>
-                  </div>
-                  <div class="appointment">
-                    <div class="title">Reunião de Equipe</div>
-                    <div class="time-slot">05:00 PM - 06:00 PM</div>
-                    <div class="location">Sala de Reuniões</div>
-                    <div class="info">Informacoes</div>
-                    <button class="action">Arquivar</button>
-                  </div>
-                </div>
-              </div>
+            <div class="event-actions">
+              <button class="button iniciar"><i class="fas fa-play"></i></button>
+            </div>
+          </div>
+
+          <!-- In Progress Events -->
+          <h2 class="status-header">Em Progresso</h2>
+          <div class="event em-progresso">
+            <span class="event-time">9:00 - 10:00</span>
+            <div class="event-info">
+              <h3 class="event-title">Nome - Solicitante</h3>
+              <dl class="event-description">
+                <dt> Local </dt>
+                <dt>Informacoes laskdjaskdahsdjhasjh </dt>
+              </dl>
+            </div>
+            <div class="event-actions">
+              <button class="button concluir"><i class="fas fa-check"></i></button>
+
             </div>
           </div>
         </div>
-    </div>
-      </main>
-    </div>
-          <div class="container">
-      <main class="main">
-        <div class="calendar">
-          <div class="date-section">
-            <div class="date-header">
-              <span class="date-label">Segunda, 11 de Fevereiro</span>
-              <button class="filter">Filtro</button>
-            </div>
-            <div class="status-events">
-              <!-- Agendados -->
-              <div class="status-section agendados">
-                <div class="card">
-                  <span class="status">Agendados</span>
-                  <div class="appointment">
-                    <div class="title">Palestra Plenario</div>
-                    <div class="time-slot">12:30 PM - 04:36 PM</div>
-                    <div class="location">Plenario</div>
-                    <div class="info">Informacoes</div>
-                    <button class="action">Concluir</button>
-                  </div>
-                  <div class="appointment">
-                    <div class="title">Reunião de Equipe</div>
-                    <div class="time-slot">05:00 PM - 06:00 PM</div>
-                    <div class="location">Sala de Reuniões</div>
-                    <div class="info">Informacoes</div>
-                    <button class="action">Concluir</button>
-                  </div>
-                </div>
-              </div>
-              <!-- Em Progresso -->
-              <div class="status-section em-progresso">
-                <div class="card">
-                  <span class="status">Em Progresso</span>
-                  <div class="appointment">
-                    <div class="title">Palestra Plenario</div>
-                    <div class="time-slot">12:30 PM - 04:36 PM</div>
-                    <div class="location">Plenario</div>
-                    <div class="info">Informacoes</div>
-                    <button class="action">Iniciar</button>
-                  </div>
-                  <div class="appointment">
-                    <div class="title">Reunião de Equipe</div>
-                    <div class="time-slot">05:00 PM - 06:00 PM</div>
-                    <div class="location">Sala de Reuniões</div>
-                    <div class="info">Informacoes</div>
-                    <button class="action">Iniciar</button>
-                  </div>
-                </div>
-              </div>
-              <!-- Concluídos -->
-              <div class="status-section concluidos">
-                <div class="card">
-                  <span class="status">Concluídos</span>
-                  <div class="appointment">
-                    <div class="title">Palestra Plenario</div>
-                    <div class="time-slot">12:30 PM - 04:36 PM</div>
-                    <div class="location">Plenario</div>
-                    <div class="info">Informacoes</div>
-                    <button class="action">Arquivar</button>
-                  </div>
-                  <div class="appointment">
-                    <div class="title">Reunião de Equipe</div>
-                    <div class="time-slot">05:00 PM - 06:00 PM</div>
-                    <div class="location">Sala de Reuniões</div>
-                    <div class="info">Informacoes</div>
-                    <button class="action">Arquivar</button>
-                  </div>
-                </div>
-              </div>
-            </div>
+
+        <!-- Completed Events -->
+        <h2 class="status-header">Concluído</h2>
+        <div class="event concluido">
+          <span class="event-time">9:00 - 10:00</span>
+          <div class="event-info">
+            <h3 class="event-title">Nome - Solicitante</h3>
+            <dl class="event-description">
+              <dt> Local </dt>
+              <dt>Informacoes laskdjaskdahsdjhasjh </dt>
+            </dl>
           </div>
+          <div class="event-actions">
+            <button class="button arquivar"><i class="fas fa-archive"></i></button>
+    </section>
+
+    <section class="day-container">
+      <h2>{{ datas.amanha.dia.string }}, {{ datas.amanha.formatada.DM }}</h2>
+      <!-- Scheduled Events -->
+      <h2 class="status-header">Agendado</h2>
+      <div class="event agendado">
+        <span class="event-time">9:00 - 10:00</span>
+        <div class="event-info">
+          <h3 class="event-title">Nome - Solicitante</h3>
+          <dl class="event-description">
+            <dt> Local </dt>
+            <dt>Informacoes laskdjaskdahsdjhasjh </dt>
+          </dl>
         </div>
-        <!-- Your HTML code for the second day -->
-      </main>
-  </body>
-  </html>
+        <div class="event-actions">
+          <button class="button iniciar"><i class="fas fa-play"></i></button>
+        </div>
+      </div>
+
+      <!-- In Progress Events -->
+      <h2 class="status-header">Em Progresso</h2>
+      <div class="event em-progresso">
+        <span class="event-time">9:00 - 10:00</span>
+        <div class="event-info">
+          <h3 class="event-title">Nome - Solicitante</h3>
+          <dl class="event-description">
+            <dt> Local </dt>
+            <dt>Informacoes laskdjaskdahsdjhasjh </dt>
+          </dl>
+        </div>
+        <div class="event-actions">
+          <button class="button concluir"><i class="fas fa-check"></i></button>
+        </div>
+      </div>
+
+      <!-- Completed Events -->
+      <h2 class="status-header">Concluído</h2>
+      <div class="event concluido">
+        <span class="event-time">9:00 - 10:00</span>
+        <div class="event-info">
+          <h3 class="event-title">Nome - Solicitante</h3>
+          <dl class="event-description">
+            <dt> Local </dt>
+            <dt>Informacoes laskdjaskdahsdjhasjh </dt>
+          </dl>
+        </div>
+        <div class="event-actions">
+          <button class="button arquivar"><i class="fas fa-archive"></i></button>
+    </section>
+  </div>
+  </div>
+  </div>
+  <!-- Include FontAwesome for icons -->
+  <script src="https://kit.fontawesome.com/your-fontawesome-kit.js"></script>
+  <link rel="stylesheet" href="{% static 'styles/style-eventos.css' %}?{% now " U" %}">
+
+
+</body>
 {% endblock %}
 
 <!--<body>
@@ -271,4 +238,3 @@
     </div>
     <script src="static/js/index.js"></script>
 </body>-->
-

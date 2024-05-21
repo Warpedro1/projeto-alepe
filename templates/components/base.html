@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <title>Alepe Suporte</title>
     <link rel="icon" href="{% static 'assets/images/acessar/favicon.ico' %}" type="image/x-icon">
     <link rel="stylesheet" href="{% static 'styles/style-eventos.css' %}?{% now "U" %}">
     <link rel="shortcut icon" type="image/png" href="{% static 'assets/icons/icone-alepe 1.png' %}">
@@ -20,6 +19,7 @@
             margin: 0;
             font-family: 'Arial', sans-serif;
             background-color: #f9f9f9;
+            font-size: 12px;
         }
 
         h3 {
@@ -37,7 +37,7 @@
             padding: 8px 20px;
             display: flex;
             justify-content: space-between;
-            align-items: center
+            align-items: center;
         }
 
         .navbar-brand {
@@ -121,6 +121,7 @@
             border: 1px groove #061d54;
             border-radius: 5px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size:12px;
         }
     </style>
     </head>
@@ -148,7 +149,7 @@
                 <a href="login">Login</a>
             {% else %}
             <img src="static/assets/icons/icone-alepe 1.png" alt="User Profile">
-            <p><b> {{ usuario.username }}</b></p>
+            <h3 class="username"><b> {{ usuario.username }}</b></h3>
             <form action="{% url 'logout' %}" method="post">
                 {% csrf_token %}
                 

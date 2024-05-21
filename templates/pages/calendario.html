@@ -13,6 +13,7 @@
     <div class="calendar">
       <div class="timeline">
         <div class="spacer"></div>
+        <!--<div id="day" class="time-marker">9</div>-->
         <div class="time-marker">8:00</div>
         <div class="time-marker">9:00</div>
         <div class="time-marker">10:00</div>
@@ -47,13 +48,13 @@
             <p class="date-day">Terça-Feira</p>
           </div>
           <div class="events">
-            <div class="event start-10 end-12 corp-fi">
-              <p class="title">Corporate Finance</p>
-              <p class="time">10 AM - 12 PM</p>
-            </div>
             <div class="event start-1 end-4 ent-law">
               <p class="title">Entertainment Law</p>
               <p class="time">1PM - 4PM</p>
+            </div>
+            <div class="event start-10 end-12 corp-fi">
+              <p class="title">Corporate Finance</p>
+              <p class="time">10 AM - 12 PM</p>
             </div>
           </div>
         </div>
@@ -79,13 +80,13 @@
             <p class="date-day">Quinta-Feira</p>
           </div>
           <div class="events">
-            <div class="event start-10 end-12 corp-fi">
-              <p class="title">Corporate Finance</p>
-              <p class="time">10 AM - 12 PM</p>
-            </div>
             <div class="event start-1 end-4 ent-law">
               <p class="title">Entertainment Law</p>
               <p class="time">1PM - 4PM</p>
+            </div>
+            <div class="event start-10 end-12 corp-fi">
+              <p class="title">Corporate Finance</p>
+              <p class="time">10 AM - 12 PM</p>
             </div>
           </div>
         </div>
@@ -100,6 +101,18 @@
       </div>
     </div>
     <!-- partial -->
+    <script>
+      // função brilhar dia atual
+      /*
+      function dayToday() {
+          var now = new Date();
+          var day = now.getDay();
+          day = day < 10 ? '0' + hours : hours;
+          document.getElementById('day').innerText = day;
+          setTimeout(dayToday, 1000);
+      }
+      */
+  </script>
   </body>
 </html>
 {%endblock%}

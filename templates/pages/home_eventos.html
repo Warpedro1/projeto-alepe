@@ -4,118 +4,135 @@
 
 <body>
   <div class="indicators-container">
-    <span class="indicator" id="agendados-total"><i class='bx bx-time-five' > </i> Agendados: {{ eventos.status.hoje.agendados }}</span>
-    <span class="indicator" id="em-progresso-total"><i class='bx bx-check-double'></i> Em Progresso: {{ eventos.status.hoje.em_progresso }}</span>
-    <span class="indicator" id="concluidos-total"><i class='bx bx-box'></i> Concluídos: {{ eventos.status.hoje.em_progresso }}</span>
+    <span class="indicator" id="agendados-total"><i class='bx bx-time-five'> </i> Agendados: {{  eventos.status.hoje.agendados }}</span>
+    <span class="indicator" id="em-progresso-total"><i class='bx bx-check-double'></i> Em Progresso: {{  eventos.status.hoje.em_progresso }}</span>
+    <span class="indicator" id="concluidos-total"><i class='bx bx-box'></i> Concluídos: {{  eventos.status.hoje.em_progresso }}</span>
   </div>
 
   <div class="main-container">
     <section class="day-container today">
-      <h2>{{ datas.hoje.dia.string }}, {{ datas.hoje.formatada.DM }} </h2>
 
-      <!-- Scheduled Events -->
-      <div class="events-container">
-        <div class="status-column">
-          <h2 class="status-header">Agendado</h2>
-          <div class="event agendado">
-            <span class="event-time">9:00 - 10:00</span>
-            <div class="event-info">
-              <h3 class="event-title">Nome - Solicitante</h3>
-              <dl class="event-description">
-                <dt> Local </dt>
-                <dt>Informacoes laskdjaskdahsdjhasjh </dt>
-              </dl>
-            </div>
-            <div class="event-actions">
-              <button class="button iniciar"><i class="fas fa-play"></i></button>
-            </div>
-          </div>
-
-          <!-- In Progress Events -->
-          <h2 class="status-header">Em Progresso</h2>
-          <div class="event em-progresso">
-            <span class="event-time">9:00 - 10:00</span>
-            <div class="event-info">
-              <h3 class="event-title">Nome - Solicitante</h3>
-              <dl class="event-description">
-                <dt> Local </dt>
-                <dt>Informacoes laskdjaskdahsdjhasjh </dt>
-              </dl>
-            </div>
-            <div class="event-actions">
-              <button class="button concluir"><i class="fas fa-check"></i></button>
-
-            </div>
-          </div>
-        </div>
-
-        <!-- Completed Events -->
-        <h2 class="status-header">Concluído</h2>
-        <div class="event concluido">
-          <span class="event-time">9:00 - 10:00</span>
-          <div class="event-info">
-            <h3 class="event-title">Nome - Solicitante</h3>
-            <dl class="event-description">
-              <dt> Local </dt>
-              <dt>Informacoes laskdjaskdahsdjhasjh </dt>
-            </dl>
-          </div>
-          <div class="event-actions">
-            <button class="button arquivar"><i class="fas fa-archive"></i></button>
-    </section>
-
-    <section class="day-container">
-      <h2>{{ datas.amanha.dia.string }}, {{ datas.amanha.formatada.DM }}</h2>
+      <h2>{{ datas.hoje.dia.string }}, {{ datas.hoje.formatada.DM }}</h2>
       <!-- Scheduled Events -->
       <h2 class="status-header">Agendado</h2>
+      {% for evento in eventos.hoje %}
+      {% if evento.status == "AGENDADO" %}
       <div class="event agendado">
-        <span class="event-time">9:00 - 10:00</span>
+        <span class="event-time">{{ evento.tempo }} </span>
         <div class="event-info">
-          <h3 class="event-title">Nome - Solicitante</h3>
+          <h3 class="event-title">{{ evento.nome }} - {{ evento.solicitante }}</h3>
           <dl class="event-description">
-            <dt> Local </dt>
-            <dt>Informacoes laskdjaskdahsdjhasjh </dt>
+            <dt> {{ evento.lugar }} </dt>
+            <dt> {{ evento.descricao }} </dt>
           </dl>
         </div>
         <div class="event-actions">
           <button class="button iniciar"><i class="fas fa-play"></i></button>
         </div>
       </div>
+      {% endif %}
+      {% endfor %}
+      
 
       <!-- In Progress Events -->
+      {% for evento in eventos.hoje %}
+      {% if evento.status == "EM PROGRESSO" %}
       <h2 class="status-header">Em Progresso</h2>
       <div class="event em-progresso">
-        <span class="event-time">9:00 - 10:00</span>
+        <span class="event-time">{{ evento.tempo }} </span>
         <div class="event-info">
-          <h3 class="event-title">Nome - Solicitante</h3>
+          <h3 class="event-title">{{ evento.nome }} - {{ evento.solicitante }}</h3>
           <dl class="event-description">
-            <dt> Local </dt>
-            <dt>Informacoes laskdjaskdahsdjhasjh </dt>
+            <dt> {{ evento.lugar }} </dt>
+            <dt> {{ evento.descricao }} </dt>
           </dl>
         </div>
         <div class="event-actions">
           <button class="button concluir"><i class="fas fa-check"></i></button>
         </div>
       </div>
+      {% endif %}
+      {% endfor %}
 
       <!-- Completed Events -->
+      {% for evento in eventos.hoje %}
+      {% if evento.status == "CONCLUIDO" %}
       <h2 class="status-header">Concluído</h2>
       <div class="event concluido">
-        <span class="event-time">9:00 - 10:00</span>
+        <span class="event-time">{{ evento.tempo }} </span>
         <div class="event-info">
-          <h3 class="event-title">Nome - Solicitante</h3>
+          <h3 class="event-title">{{ evento.nome }} - {{ evento.solicitante }}</h3>
           <dl class="event-description">
-            <dt> Local </dt>
-            <dt>Informacoes laskdjaskdahsdjhasjh </dt>
+            <dt> {{ evento.lugar }} </dt>
+            <dt> {{ evento.descricao }} </dt>
           </dl>
         </div>
         <div class="event-actions">
           <button class="button arquivar"><i class="fas fa-archive"></i></button>
+        </div>
+      {% endif %}
+      {% endfor %}
+    </section>
+    <section class="day-container">
+
+      <h2>{{ datas.amanha.dia.string }}, {{ datas.amanha.formatada.DM }}</h2>
+      <!-- Scheduled Events -->
+      <h2 class="status-header">Agendado</h2>
+      {% for evento in eventos.amanha %}
+      {% if evento.status == "AGENDADO" %}
+      <div class="event agendado">
+        <span class="event-time">{{ evento.tempo }} </span>
+        <div class="event-info">
+          <h3 class="event-title">{{ evento.nome }} - {{ evento.solicitante }}</h3>
+          <dl class="event-description">
+            <dt> {{ evento.lugar }} </dt>
+            <dt> {{ evento.descricao }} </dt>
+          </dl>
+        </div>
+        <div class="event-actions">
+          <button class="button iniciar"><i class="fas fa-play"></i></button>
+        </div>
+      </div>
+      {% endif %}
+      {% endfor %}
+      <!-- In Progress Events -->
+      {% for evento in eventos.hoje %}
+      {% if evento.status == "EM PROGRESSO" %}
+      <h2 class="status-header">Em Progresso</h2>
+      <div class="event em-progresso">
+        <span class="event-time">{{ evento.tempo }} </span>
+        <div class="event-info">
+          <h3 class="event-title">{{ evento.nome }} - {{ evento.solicitante }}</h3>
+          <dl class="event-description">
+            <dt> {{ evento.lugar }} </dt>
+            <dt> {{ evento.descricao }} </dt>
+          </dl>
+        </div>
+        <div class="event-actions">
+          <button class="button concluir"><i class="fas fa-check"></i></button>
+        </div>
+      </div>
+      {% endif %}
+      {% endfor %}
+      <!-- Completed Events -->
+      {% for evento in eventos.hoje %}
+      {% if evento.status == "CONCLUIDO" %}
+      <h2 class="status-header">Concluído</h2>
+      <div class="event concluido">
+        <span class="event-time">{{ evento.tempo }} </span>
+        <div class="event-info">
+          <h3 class="event-title">{{ evento.nome }} - {{ evento.solicitante }}</h3>
+          <dl class="event-description">
+            <dt> {{ evento.lugar }} </dt>
+            <dt> {{ evento.descricao }} </dt>
+          </dl>
+        </div>
+        <div class="event-actions">
+          <button class="button arquivar"><i class="fas fa-archive"></i></button>
+      {% endif %}
+      {% endfor %}
     </section>
   </div>
-  </div>
-  </div>
-  <!-- Include FontAwesome for icons -->
   <script src="https://kit.fontawesome.com/your-fontawesome-kit.js"></script>
   <link rel="stylesheet" href="{% static 'styles/style-eventos.css' %}?{% now " U" %}">
 

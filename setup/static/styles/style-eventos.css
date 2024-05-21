@@ -35,14 +35,19 @@ body {
   margin-top: 1px;
   padding: 20px;
   padding-top: 1px;
-  font-size: 20px;
+  
   color: #333;
   margin-bottom: 10px;
   padding-bottom: 10px;
 
 }
-
-
+h2{
+  font-size: 18px;
+}
+dt{
+  font-size: 18px;
+  color: #333;
+}
 
 /* Responsivo*/
 @media (max-width: 768px) {
@@ -64,12 +69,12 @@ body {
 .event {
   display: flex;
   align-items: center;
-  margin-bottom: 20px;
-  padding: 20px;
+  margin-bottom: 14px;
+  padding: 4px;
   background-color: #e7e7e752;
-  border-left: 5px solid transparent;
+  border-left: 3px solid transparent;
   transition: all 0.3s ease;
-  border-radius: 4px;
+  border-radius: 3px;
   border-bottom: none;
 }
 
@@ -83,7 +88,7 @@ body {
   font-size: 16px;
   font-weight: bold;
   color: #333;
-  margin-right: 20px;
+  margin-right: 28px;
   white-space: nowrap;
 }
 
@@ -92,15 +97,16 @@ body {
 }
 
 .em-progresso {
-  border-left-color: #f9a825;
+  border-left-color: #C79E05;
 }
 
 .concluido {
-  border-left-color: #2e7d32;
+  border-left-color: #D3C69C;
 }
 
 .button {
   padding: 10px 15px;
+  margin-top: 0px;
   border: none;
   border-radius: 4px;
   font-weight: 500;
@@ -120,18 +126,18 @@ body {
 }
 
 .concluir {
-  background-color: #f9a825;
+  background-color: #C79E05;
 }
 
 .arquivar {
-  background-color: #2e7d32;
+  background-color: #D3C69C;
 }
 
 .status-header {
-  font-size: 20px;
+  font-size: medium;
   color: #333;
   margin-top: 20px;
-  border-bottom: 2px solid #eee;
+  border-bottom: 1px solid #eee;
   padding-bottom: 10px;
 }
 
@@ -139,6 +145,7 @@ body {
   flex-grow: 1;
   align-items: center;
   margin: 10px auto;
+  text-transform: uppercase;
 }
 
 .event-title {

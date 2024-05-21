@@ -23,19 +23,22 @@
         <div class="time-marker">15:00</div>
         <div class="time-marker">16:00</div>
         <div class="time-marker">17:00</div>
-        <div class="time-marker">18:00</div>
       </div>
       <div class="days">
         <div class="day mon">
           <div class="date">
-            <p class="date-num">9</p>
+            <p class="date-num">{{ datas.hoje.dia.numerico }}</p>
             <p class="date-day">Segunda-Feira</p>
           </div>
           <div class="events">
-            <div class="event start-2 end-5 securities">
-              <p class="title">Securities Regulation</p>
-              <p class="time">2 PM - 5 PM</p>
+          {% for data, eventos in eventos_mes.items %}
+          {% for evento in eventos %}
+            <div class="event start-{{ start }} {{ status }}">
+              <p class="title">{{ evento.nome }} - {{ evento.lugar }}</p>
+              <p class="time">{{ evento.tempo }}</p>
             </div>
+          {% endfor %}
+          {% endfor %}
           </div>
         </div>
         <div class="day tues">

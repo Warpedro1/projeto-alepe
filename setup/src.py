@@ -12,6 +12,10 @@ def get_hoje():
 def get_amanha():
     return get_hoje() + timedelta(days=1)
 
+def get_week_start(date):
+    start_of_week = date - timedelta(days=date.weekday())
+    return start_of_week
+
 def get_dias_da_semana():
     return {i: dia for i, dia in enumerate(
         ["Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sábado", "Domingo"]
@@ -109,4 +113,4 @@ def formatar_horário(eventos):
     
     return eventos
 
-
+# sorted(eventos_por_data.items(), key=lambda item: item[0])

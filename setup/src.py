@@ -89,7 +89,7 @@ def get_eventos_de_amanha(dia):
     return Evento.objects.filter(tempo__date=dia).order_by('tempo')
 
 def get_eventos_do_mes(dia):
-    return Evento.objects.filter(tempo__month=dia.month)
+    return Evento.objects.filter(tempo__month=dia.month, tempo__year=dia.year).order_by('tempo')
 
 def get_count(eventos):
     tipo_do_status = {i: status for i, status in enumerate(

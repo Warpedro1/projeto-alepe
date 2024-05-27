@@ -32,13 +32,13 @@
             <p class="date-day">Segunda-Feira</p>
           </div>
           <div class="events">
-          {% for data, eventos in eventos_mes.items %}
-          {% for evento in eventos %}
-            <div class="event start-{{ start }} {{ status }}">
-              <p class="title">{{ evento.nome }} - {{ evento.lugar }}</p>
-              <p class="time">{{ evento.tempo }}</p>
-            </div>
-          {% endfor %}
+          {% for week, days in novo_eventos_mes.items %}
+            {% for day, event in days.items %}
+              <div class="event start-{{ event.inicio }} writing">
+                <p class="title">{{ event.nome }} - {{ event.lugar }}</p>
+                <p class="time">{{ event.tempo }}</p>
+              </div>
+            {% endfor %}
           {% endfor %}
           </div>
         </div>

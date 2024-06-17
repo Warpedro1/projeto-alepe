@@ -103,15 +103,18 @@
     <!-- partial -->
     <script>
       // função brilhar dia atual
-      /*
+      /
       function dayToday() {
           var now = new Date();
           var day = now.getDay();
           day = day < 10 ? '0' + hours : hours;
           document.getElementById('day').innerText = day;
           setTimeout(dayToday, 1000);
+
+          Calendar today = Calendar.getInstance();
+          today.set(Calendar.HOUR_OF_DAY, 0);
       }
-      */
+      /
   </script>
   </body>
 </html>
